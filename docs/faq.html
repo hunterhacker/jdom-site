@@ -415,12 +415,13 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
               there XPath support in JDOM?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif">XPath on JDOM 
-              is being developed by Bob McWhirter and others at <a href="http://code.werken.com/xpath/">http://code.werken.com/xpath/</a>, 
+              is being developed by Bob McWhirter and others at <a href="http://code.werken.com/xpath/">http://jaxen.org</a>, 
               with periodic snapshots integrated into the <font face="Courier New, Courier, mono">jdom-contrib</font> 
               module for convenience. The implementation is highly functional 
               although not 100% complete. Bob's experience with implementing XPath 
               on JDOM has helped shape and improve the JDOM core, and having XPath 
-              integration into the core is likely for JDOM 1.1.</font></p>
+              integration into the core is likely as soon as the implementation 
+              is complete.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -517,7 +518,7 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
             <p> <font size="2" face="Arial, Helvetica, sans-serif"> Use the methods 
               on the <font face="Courier New, Courier, mono">List</font> returned 
               by <font face="Courier New, Courier, mono">getChildren()</font> 
-              or <font face="Courier New, Courier, mono">getMixedContent()</font>. 
+              or <font face="Courier New, Courier, mono">getContent()</font>. 
               JDOM doesn't need special methods because the methods already exist 
               in <font face="Courier New, Courier, mono">List</font>. For example 
               to remove an element from a list of children:</font> 
@@ -625,7 +626,7 @@ x.addContent(y);
 Element z = new Element("z", ns);
 y.addContent(z);
 </pre>
-<font face="Arial, Helvetica, sans-serif" size="2">If you left out the <font face="Courier New, Courier, mono">Namespace</font> instance from the constructor for the element <font face="Courier New, Courier, mono">z</font>, you would have the following tree in-memory:</font></p>
+<font face="Arial, Helvetica, sans-serif" size="2">If you left out the <font face="Courier New, Courier, mono">Namespace</font> instance from the constructor for the element <font face="Courier New, Courier, mono">z</font>, you would have the following tree in-memory:</font><p></p>
 <pre>
 &lt;x&gt;
   &lt;y xmlns="http://foo.com"&gt;
@@ -695,9 +696,9 @@ y.addContent(z);
               the document content as a <font face="Courier New, Courier, mono">List</font>. 
               Either get the list and add content to its head, or set the list 
               of content explicitly.</font></p>
-            <pre>doc.getMixedContent().add(0, pi); </pre>
+            <pre>doc.getContent().add(0, pi); </pre>
             <pre><font size="2"></font><font face="Arial, Helvetica, sans-serif">or</font></pre>
-            <pre>doc.setMixedContent(listOfContent);</pre>
+            <pre>doc.setContent(listOfContent);</pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -766,13 +767,20 @@ InputStream in = new ByteArrayInputStream(buf);
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
               there an archive for the JDOM mailing lists?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Yes, all the 
-              messages since the beginning are available for your Web-based perusal. 
-              We're working on getting a search engine up for the site that will 
-              include searching of archive messages; in the the meanwhile you 
-              can just download the monthly text dumps and CTRL-F around. The 
-              jdom-interest archives are available at <a href="http://lists.denveronline.net/lists/jdom-interest/">http://lists.denveronline.net/lists/jdom-interest/</a>, 
-              jdom-announce archives are at <a href="http://lists.denveronline.net/lists/jdom-announce/">http://lists.denveronline.net/lists/jdom-announce/</a>, 
-              and jdom-commits archives are at <a href="http://lists.denveronline.net/lists/jdom-commits/">http://lists.denveronline.net/lists/jdom-commits/</a>.</font></p>
+              messages are available for your Web-based perusal. Below are the 
+              slick searchable archives:</font></p>
+            <ul>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-interest">http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-interest</a></font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-announce">http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-announce</a></font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-commits">http://www.servlets.com/archive/servlet/SummarizeList?listName=jdom-commits</a></font></li>
+            </ul>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">There are additional 
+              archives at:</font></p>
+            <ul>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://lists.denveronline.net/lists/jdom-interest/">http://lists.denveronline.net/lists/jdom-interest/</a></font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://lists.denveronline.net/lists/jdom-announce/">http://lists.denveronline.net/lists/jdom-announce/</a></font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://lists.denveronline.net/lists/jdom-commits/">http://lists.denveronline.net/lists/jdom-commits/</a></font></li>
+            </ul>
           </td>
         </tr>
         <tr align="left" valign="top"> 
