@@ -875,8 +875,9 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
               SAXBuilder constructor. For Xerces 2 the parser class is <font face="Courier New, Courier, mono">org.apache.xerces.parsers.SAXParser</font>. 
               You must also </font><font face="Arial, Helvetica, sans-serif" size="2">enable 
               parser validation by passing &quot;true&quot; when creating a SAXBuilder.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>SAXBuilder 
-              builder = new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
+            <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder builder 
+              =<br>
+              &nbsp; new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
               true);</code></font></p>
             <p><font face="Arial, Helvetica, sans-serif" size="2">Next, you tell 
               the parser (Xerces) you want to validate against a schema (or schemas), 
@@ -889,7 +890,8 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
             <p><font face="Arial, Helvetica, sans-serif" size="2">Schemas are 
               enabled by setting the feature &quot;http://apache.org/xml/features/validation/schema&quot; 
               to true.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>builder.setFeature(&quot;http://apache.org/xml/features/validation/schema&quot;, 
+            <p><font face="Arial, Helvetica, sans-serif"><code>builder.setFeature(<br>
+              &nbsp; </code></font><font face="Arial, Helvetica, sans-serif"><code>&quot;http://apache.org/xml/features/validation/schema&quot;, 
               true);</code></font></p>
             <p><font face="Arial, Helvetica, sans-serif" size="2">Schema locations 
               are given by setting the property &quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot; 
@@ -911,10 +913,12 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
               pairs follow the meaning given in the Schema recommendation (<a href="http://www.w3.org/TR/xmlschema-1/#schema-loc">http://www.w3.org/TR/xmlschema-1/#schema-loc</a>).</font></p>
             <p><font face="Arial, Helvetica, sans-serif" size="2">The complete 
               code looks like this:</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>SAXBuilder 
-              builder = new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
+            <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder builder 
+              =<br>
+              &nbsp; new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
               true);<br>
-              builder.setFeature(&quot;http://apache.org/xml/features/validation/schema&quot;, 
+              builder.setFeature(<br>
+              &nbsp; &quot;http://apache.org/xml/features/validation/schema&quot;, 
               true);<br>
               builder.setProperty(<br>
               &nbsp;&nbsp;&quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot;,<br>
@@ -922,13 +926,15 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
               + &quot; &quot; +<br>
               &nbsp;&nbsp;&quot;http://kevinj.develop.com/weblog/weblog.xsd weblog.xsd&quot;);<br>
               Document doc = builder.build(xml);</code></font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">If you want 
-              to use JAXP to select the parser, you can skip specifying a class 
-              to the SAXBuilder constructor and instead set the system property 
-              &quot;javax.xml.parsers.SAXParserFactory&quot; to the value &quot;org.apache.xerces.jaxp.SAXParserFactoryImpl&quot;. 
-              That tells JAXP to use Xerces' factory to build parsers. If you 
-              like, you can specify this property on the command line:</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>java -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl 
+            <p><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif" size="2">If 
+              you want to use JAXP to select the parser, you can skip specifying 
+              a class to the SAXBuilder constructor and instead set the system 
+              property &quot;javax.xml.parsers.SAXParserFactory&quot; to the value 
+              &quot;org.apache.xerces.jaxp.SAXParserFactoryImpl&quot;. That tells 
+              JAXP to use Xerces' factory to build parsers. If you like, you can 
+              specify this property on the command line:</font></p>
+            <p><font face="Arial, Helvetica, sans-serif"><code>java -Djavax.xml.parsers.SAXParserFactory=<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.apache.xerces.jaxp.SAXParserFactoryImpl 
               ...</code></font></p>
             </td>
         </tr>
