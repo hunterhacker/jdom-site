@@ -376,7 +376,7 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
-          <td height="209"> 
+          <td > 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
               there XPath support in JDOM?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif">XPath on JDOM 
@@ -389,7 +389,7 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
-          <td height="173"> 
+          <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What 
               features of XML are not fully handled by JDOM?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Eventually 
@@ -550,6 +550,54 @@ children.remove(0);       // first child</pre>
               that is not otherwise using namespaces may still want to include 
               these two attributes.</font></p>
             <p></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top">
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why do I need 
+              to pass in a <font face="Courier New, Courier, mono">Namespace</font> to <font face="Courier New, Courier, mono">getChild()</font>, when the child element I'm looking for has no namespace declaration?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">Specifically,
+for this XML fragment: <br /></font></p>
+<pre>
+&lt;x&gt;
+  &lt;y xmlns="http://foo.com"&gt;
+    &lt;z /&gt;
+  &lt;/y&gt;
+&lt;/x&gt;
+</pre>
+<p><font face="Arial, Helvetica, sans-serif">I need to use code like this:</font></p>
+<pre>
+Namespace ns = Namespace.getNamespace("http://foo.com");
+Element y = x.getChild("y", ns);
+Element z = y.getChild("z", ns);
+</pre>
+<p><font face="Arial, Helvetica, sans-serif">If I leave out the namespace from the second call to <font face="Courier New, Courier, mono">getChild()</font>, it returns <font face="Courier New, Courier, mono">null</font>. Why?</font></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">JDOM works on the logical in-memory XML tree, not the textual representation on-disk. While the element <font face="Courier New, Courier, mono">z</font> has no namespace <i>declaration</i>, it does have a <i>namespace</i> - the one inherited from its parent, which declares a default namespace (associated with the URI http://foo.com).</font></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">According to the namespaces specification, the following XML fragment is identical in meaning to the previous one:</font></p>
+<pre>
+&lt;x&gt;
+  &lt;y xmlns="http://foo.com"&gt;
+    &lt;z xmlns="http://foo.com" /&gt;
+  &lt;/y&gt;
+&lt;/x&gt;
+</pre>
+<p><font size="2" face="Arial, Helvetica, sans-serif">The way that the JDOM API handles namespaces means that you can write code that works for both examples. Otherwise, you would need to have code that checked for each case separately.</font></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">Similarly, if you were constructing (instead of reading) the XML in the first example above, you would need to write code like this:</font></p>
+<pre>
+Namespace ns = Namespace.getNamespace("http://foo.com");
+Element y = new Element("y", ns);
+x.addContent(y);
+Element z = new Element("z", ns);
+y.addContent(z);
+</pre>
+<font face="Arial, Helvetica, sans-serif" size="2">If you left out the <font face="Courier New, Courier, mono">Namespace</font> instance from the constructor for the element <font face="Courier New, Courier, mono">z</font>, you would have the following tree in-memory:</font></p>
+<pre>
+&lt;x&gt;
+  &lt;y xmlns="http://foo.com"&gt;
+    &lt;z xmlns="" /&gt;
+  &lt;/y&gt;
+&lt;/z&gt;
+</pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
