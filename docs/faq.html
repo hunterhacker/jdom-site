@@ -294,7 +294,7 @@ File child = fs.getFile(parent, "aaa.txt");</pre>
         <tr align="left" valign="top"> 
           <td height="106"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Was 
-              JDOM designed for Java 2?</font></b></font></p>
+              JDOM designed for ?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif">Yes, JDOM has 
               been designed using the <font face="Courier New, Courier, mono">List</font> 
               and <font face="Courier New, Courier, mono">Map</font> interfaces 
@@ -407,25 +407,21 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
           <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Does 
               JDOM work with JDK 1.1?</font></b></font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif"> Yes. Because 
-              JDOM currently has no ties to Java 2 other than the Collections 
-              APIs, it's possible for someone with JDK 1.1 plus the collections.jar 
-              (available from <a href="http://java.sun.com/beans/infobus/#collections">http://java.sun.com/beans/infobus/#collections</a>) 
-              to use JDOM. The only "gotcha" is that the collections.jar places 
-              the Collections classes in com.sun.java.util.collections so you'll 
-              need to run the special JDOM build scripts build11.bat and build11.sh 
-              that trigger an import line replace task as part of the build. These 
-              scripts are available in the current CVS tree and beginning with 
-              beta5.</font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> Not any longer. 
+              We maintained compatibility until April 2003 when we fully integrated 
+              Jaxen for XPath which does not have a JDK 1.1 port. If you absolutely 
+              need JDK 1.1 support, pull the JDOM code from CVS as it was at the 
+              end of March. There's special build scripts that replaced the Java 
+              2 Collections APIs with a JDK 1.1 version called collections.jar.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
           <td height="71"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Are 
               there any performance numbers?</font></b></font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif">Not yet. JDOM 
-              is still really new! Only preliminary numbers have been taken, but 
-              they have been extremely promising. And JDOM hasn't been tuned yet!</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Dennis Sosnoski 
+              runs performance benchmarks. In general, most XML object models 
+              are in a similar neighborhood.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -438,21 +434,15 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               interface and the <font face="Courier New, Courier, mono">JDOMSource</font>/<font face="Courier New, Courier, mono">JDOMResult</font> 
               classes found in the <font face="Courier New, Courier, mono">org.jdom.transform</font> 
               package. Look to the sample named <font face="Courier New, Courier, mono">XSLTransform</font> 
-              for an example (<font face="Courier New, Courier, mono">jdom/samples</font>). 
-              These classes were added after beta6, so you'll want to download 
-              the latest source from CVS.</font></p>
+              for an example (<font face="Courier New, Courier, mono">jdom/samples</font>).</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
           <td > 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
               there XPath support in JDOM?</font></b></font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif">XPath on JDOM 
-              is being developed by Bob McWhirter and others at <a href="http://jaxen.org">http://jaxen.org</a>. 
-              The implementation is highly functional although not quite 100% 
-              complete. Bob's experience with implementing XPath on JDOM has helped 
-              shape and improve the JDOM core, and having XPath integration into 
-              the core is likely as soon as the implementation is complete.</font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">Yes! It's fully 
+              integrated in org.jdom.xpath as of Beta 9, based on <a href="http://jaxen.org/">Jaxen</a>.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -610,14 +600,13 @@ children.remove(0);       // first child</pre>
             <p><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif" size="2">The 
               first argument is the local name. The second argument is the prefix. 
               The third argument is the namespace URI.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">The <font face="Courier New, Courier, mono">xml:lang</font> 
+            <p><font face="Arial, Helvetica, sans-serif" size="2">If you're trying 
+              to create the <font face="Courier New, Courier, mono">xml:lang</font> 
               and <font face="Courier New, Courier, mono">xml:space</font> attributes 
-              are special cases that are allowed only because the XML 1.0 specification 
-              defined them before namespaces were current, and therefore a document 
-              that is not otherwise using namespaces may still want to include 
-              these two attributes.</font></p>
-            <p></p>
-          </td>
+              use:</font></p>
+            <pre>Element e = 
+  new Element(&quot;lang&quot;, Namespace.XML_NAMESPACE);</pre>
+            </td>
         </tr>
         <tr align="left" valign="top"> 
           <td> 
@@ -765,14 +754,14 @@ y.addContent(z);
               do I avoid getting an OutOfMemoryError?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Most JVMs have 
               an option to increase their maximum heap size, which is the maximum 
-              amount of memory the JVM can use for its objects. In the JDK 1.2 
-              you can set your initial heap size to 32 Megs and maximum heap size 
-              to 64 Megs with the following command:</font></p>
+              amount of memory the JVM can use for its objects. You can set your 
+              initial heap size to 32 Megs and maximum heap size to 64 Megs with 
+              the following command:</font></p>
             <pre><font face="Courier New, Courier, mono">java -Xms32m -Xmx64m SomeClass</font></pre>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">Of course, if 
-              your document is larger than available virtual memory, there's not 
-              much you can do short of helping us create a deferred-build document 
-              implementation.</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">If you don't 
+              require all the document in memory, look at the jdom-contrib module's 
+              org.jdom.contrib.input.scanner package which lets you build the 
+              portion of a document matching an XPath expression.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -1078,11 +1067,10 @@ href="http://www.amazon.com/exec/obidos/ASIN/0764532367/jasonhunter">XML Bible</
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">When 
               does JDOM 1.0 come out?</font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Schedules are 
-              difficult to define because all developers are volunteers. Jason 
-              recently left his day job and has more time now to project manage, 
-              so things are picking up again after a slow-down in the summer and 
-              fall of 2001.</font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif"></font></p>
+              difficult to define because all developers are volunteers. Jason's 
+              self employed and especially in a down economy has to put his paying 
+              work first. Things are picking up again. For more information:</font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"><a href="http://www.servlets.com/archive/servlet/ReadMsg?msgId=332705">http://www.servlets.com/archive/servlet/ReadMsg?msgId=332705</a></font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -1123,10 +1111,10 @@ href="http://www.amazon.com/exec/obidos/ASIN/0764532367/jasonhunter">XML Bible</
               you found a bug in JDOM, please follow this procedure:</font></p>
             <ol>
               <li><font size="2" face="Arial, Helvetica, sans-serif">Check the 
-                <font face="Courier New, Courier, mono"><a href="http://cvs.jdom.org/cgi-bin/viewcvs.cgi/jdom/TODO.txt">TODO.txt</a></font> 
-                file in the root of the distribution to see if it's a known issue.</font></li>
+                <font face="Courier New, Courier, mono">TODO.txt</font> file in 
+                the root of the latest distribution to see if it's a known issue.</font></li>
               <li><font size="2" face="Arial, Helvetica, sans-serif">Check if 
-                the problem occurs when using the <a href="http://cvs.jdom.org">latest 
+                the problem occurs when using the <a href="http://www.jdom.org/dist/nightly/">latest 
                 daily snapshot</a> of JDOM. Odds are good the bug has already 
                 been fixed since the last beta.</font></li>
               <li><font size="2" face="Arial, Helvetica, sans-serif">Search the 
