@@ -174,7 +174,9 @@
               available, enabling developers to use JDOM in creating new products 
               without requiring them to release their own products as open source. 
               This is the license model used by the Apache Project, which created 
-              the Apache server. </font></p>
+              the Apache server. The license is available at the top of every 
+              source file and in LICENSE.txt in the root of the distribution, 
+              or you can view it using CVSweb at <a href="http://cvs.jdom.org/cgi-bin/viewcvs.cgi/jdom/LICENSE.txt">http://cvs.jdom.org/cgi-bin/viewcvs.cgi/jdom/LICENSE.txt</a>.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -223,25 +225,25 @@ JDOM:</font></p>
 <p><font size="2" face="Arial, Helvetica, sans-serif"><i>With interfaces everything becomes a
 factory, elements have to be 'imported' into new documents instead of
 just added, features like long-term serialization cannot be guaranteed,
-and the list goes on.</p>
+and the list goes on.</i></font></p><font size="2" face="Arial, Helvetica, sans-serif"><i>
 <p>We started with interfaces actually.  During our pre-release review to
 some peers we received the feedback we should try concrete classes.  We
-did, and the design was much better for it.</i></p>
-<p>Think about </font>java.io.File<font size="2" face="Arial, Helvetica, sans-serif"> as an analogy. There's a reason we say:</p>
+did, and the design was much better for it.</p></i>
+</font><p><font size="2" face="Arial, Helvetica, sans-serif">Think about </font>java.io.File<font size="2" face="Arial, Helvetica, sans-serif"> as an analogy. There's a reason we say:</font></p><font size="2" face="Arial, Helvetica, sans-serif">
 <p></font><pre>File parent = new File(filepath);
-File child = new File(parent, "aaa.txt");</pre></p>
-<p><font face="Arial, Helvetica, sans-serif" size="2">rather than</p>
+File child = new File(parent, "aaa.txt");</pre><p></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">rather than</font></p><font face="Arial, Helvetica, sans-serif" size="2">
 <p></font><pre>FileSystem fs = FileSystem.getDefaultFileSystem();
 File parent = fs.getFile(filepath);
-File child = fs.getFile(parent, "aaa.txt");</pre></p>
-<p><font size="2" face="Arial, Helvetica, sans-serif">The former is simply easier and nicer to deal with.</p>
+File child = fs.getFile(parent, "aaa.txt");</pre><p></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">The former is simply easier and nicer to deal with.</font></p><font size="2" face="Arial, Helvetica, sans-serif">
 <p>Another point to keep in mind is that anything that can be done with
 interfaces can be done with subclassing - the only penalty is possibly
 unused variables in the base class.</p>
 <p>For reference, the latest mailing list discussion on this topic started
 Nov. 30, 2000 with "Interfaces", and continued with "Interface-based
 JDOM" and "Announce: JDOMPlus". It would help to review this discussion
-before bringing this topic up on the mailing list.</font></p>
+before bringing this topic up on the mailing list.</p></font>
           </td>
         </tr>
         <tr align="left" valign="top"> 
