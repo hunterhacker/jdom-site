@@ -246,19 +246,31 @@
 </font><font color="#003366"> or<br></font><font color="#003366">java.lang.NoClassDefFoundError:
 org/xml/sax/SAXNotRecognizedException </font></pre>
             <font color="#003366"></font> 
-            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What's 
-              wrong? </font></b></font></p>
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><i>What's 
+              wrong? </i></font></b></font></p>
             <p><font size="2" face="Arial, Helvetica, sans-serif">You need to 
               ensure that the <font face="Courier New, Courier, mono">xerces.jar</font> 
               file supplied with the JDOM download is in your classpath <i>before</i> 
               any other XML classes, such as those that come with JAXP or Crimson. 
               These other XML libraries, as well as older versions of Apache Xerces, 
               support DOM Level 1 and SAX 1.0, not the required DOM Level 2 and 
-              SAX 2.0. The result is an<font face="Courier New, Courier, mono"> 
-              </font>exception being thrown. Check your classpath, and try again. 
-              If the classpath looks OK, the problematic JAR might also be hiding 
-              in the system's standard extension directory (<font face="Courier New, Courier, mono">jre\lib\ext</font>). 
-              </font></p>
+              SAX 2.0. The result is an exception being thrown. Check your classpath, 
+              and try again. If the classpath looks OK, the problematic JAR might 
+              also be hiding in the system's standard extension directory (see 
+              the following). </font></p>
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><i>What 
+              do you mean &quot;Standard extension directory&quot;?</i></font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">The standard 
+              extension directory is a directory containing JAR files that is 
+              searched automatically by the Java runtime and compiler. If you've 
+              installed the JDK (not the just the JRE) you may well have two separate 
+              ext directories, one of which is used for compiling (typically somewhere 
+              like <font face="Courier New, Courier, mono">C:\jdk1.3\jre\lib\ext</font>) 
+              and the other of which is used for running code (typically somewhere 
+              like <font face="Courier New, Courier, mono">C:\Program&nbsp;Files\JavaSoft\jre\1.3\lib\ext</font>). 
+              The wrong JAR file in either directory can get in your way (though 
+              at different times). Furthermore, the right JAR file has to be in 
+              both directories.</font> </p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -321,7 +333,7 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
             </ul>
             <p><font face="Arial, Helvetica, sans-serif" size="2">(Contributed 
               by Guy Nirpaz)</font></p>
-            </td>
+          </td>
         </tr>
         <tr align="left" valign="top"> 
           <td> 
@@ -429,7 +441,7 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               you'll want to know if this element and all its children are equivalent 
               to another one. If you really do want to know you can write some 
               comparison code yourself that checks only as much as you want to 
-              check (maybe the name/namespaces only) instead of doing a full recurse.</font>
+              check (maybe the name/namespaces only) instead of doing a full recurse.</font> 
           </td>
         </tr>
         <tr align="left" valign="top"> 
@@ -512,7 +524,7 @@ children.remove(0);       // first child</pre>
               of the way namespaces are implemented in JDOM, you cannot simply 
               create an Element or Attribute with a fully qualified name like 
               <font face="Courier New, Courier, mono">svg:title</font>. That is 
-              you cannot do this:</font>
+              you cannot do this:</font> 
             <pre>Element e = new Element(&quot;svg:title&quot;);</pre>
             <p><font face="Arial, Helvetica, sans-serif" size="2">Instead you 
               must split the two parts into a <font face="Courier New, Courier, mono">Namespace</font> 
