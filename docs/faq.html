@@ -210,6 +210,41 @@
           </td>
         </tr>
         <tr align="left" valign="top"> 
+          <td height="201"> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              is the JDOM API defined in terms of concrete classes rather than interfaces?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">This issue has been discussed several times on the JDOM mailing list,
+with several people on both sides. In general, many people feel that a
+class-based API is better when subclassing is not needed, while an
+interface-based API is better when subclassing is needed. However,
+either system can be used in either case.</font></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">Jason Hunter summarizes the arguments against an interface-based API for
+JDOM:</font></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif"><i>With interfaces everything becomes a
+factory, elements have to be 'imported' into new documents instead of
+just added, features like long-term serialization cannot be guaranteed,
+and the list goes on.</p>
+<p>We started with interfaces actually.  During our pre-release review to
+some peers we received the feedback we should try concrete classes.  We
+did, and the design was much better for it.</i></p>
+<p>Think about </font>java.io.File<font size="2" face="Arial, Helvetica, sans-serif"> as an analogy. There's a reason we say:</p>
+<p></font><pre>File parent = new File(filepath);
+File child = new File(parent, "aaa.txt");</pre></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">rather than</p>
+<p></font><pre>FileSystem fs = FileSystem.getDefaultFileSystem();
+File parent = fs.getFile(filepath);
+File child = fs.getFile(parent, "aaa.txt");</pre></p>
+<p><font size="2" face="Arial, Helvetica, sans-serif">The former is simply easier and nicer to deal with.</p>
+<p>Another point to keep in mind is that anything that can be done with
+interfaces can be done with subclassing - the only penalty is possibly
+unused variables in the base class.</p>
+<p>For reference, the latest mailing list discussion on this topic started
+Nov. 30, 2000 with "Interfaces", and continued with "Interface-based
+JDOM" and "Announce: JDOMPlus". It would help to review this discussion
+before bringing this topic up on the mailing list.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
           <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><a name="dom_and_sax"></a>How 
               does JDOM work with DOM and SAX?</font></b></font></p>
