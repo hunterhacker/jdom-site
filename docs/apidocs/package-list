@@ -2,3 +2,4 @@ org.jdom
 org.jdom.adapters
 org.jdom.input
 org.jdom.output
+org.jdom.transform
