@@ -143,180 +143,111 @@
     <td valign="top" align="left" height="6" colspan="2" rowspan="2">
 
       <table width="100%" border="0" cellspacing="5" cellpadding="5">
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What 
-
               is JDOM?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM is, quite 
-
               simply, a Java representation of an XML document. JDOM provides 
-
               a way to represent that document for easy and efficient reading, 
-
               manipulation, and writing. It has a straightforward API, is a lightweight 
-
               and fast, and is optimized for the Java programmer. It's an alternative 
-
               to DOM and SAX, although it integrates well with both DOM and SAX.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="66"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
-
               JDOM an acronym?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">Nope. Just like 
-
               JDBC is not officially an acronym, neither is JDOM. This ensures 
-
               we comply with Sun's trademark policies as explained at <a href="http://www.sun.com/policies/trademarks">http://www.sun.com/policies/trademarks</a>.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What 
-
               is the JDOM license?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM is available 
-
-              under an Apache-style open source license. This license is among 
-
-              the least restrictive license available, enabling developers to 
-
-              use JDOM in creating new products without requiring them to release 
-
-              their own products as open source. This is the license model used 
-
-              by the Apache Project, which created the Apache server.</font></p>
-
+              under an Apache-style open source license, with the acknowledgment 
+              clause removed. This license is among the least restrictive license 
+              available, enabling developers to use JDOM in creating new products 
+              without requiring them to release their own products as open source. 
+              This is the license model used by the Apache Project, which created 
+              the Apache server. </font></p>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Where 
-
               can I get JDOM?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM is available 
-
               in binary and source form from <a href="http://www.jdom.org">http://www.jdom.org</a>.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="201"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What 
-
               is the JDOM Philosophy?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM has been 
-
               and will continue to be developed with this philosophy:</font></p>
-
             <ul>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif"> JDOM should 
-
                 be straightforward for Java programmers.</font></li>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM should 
-
                 support easy and efficient document modification.</font></li>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM should 
-
                 hide the complexities of XML wherever possible, while remaining 
-
                 true to the XML specification.</font></li>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM should 
-
                 integrate with DOM and SAX.</font></li>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM should 
-
                 be lightweight and fast.</font></li>
-
               <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM should 
-
                 solve 80% (or more) of Java/XML problems with 20% (or less) of 
-
                 the effort</font></li>
-
             </ul>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><a name="dom_and_sax"></a>How 
-
               does JDOM work with DOM and SAX?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM documents 
-
               can be built from XML files, DOM trees, SAX events, or any other 
-
               source. JDOM documents can be converted to XML files, DOM trees, 
-
               SAX events, or any other destination. This ability proves useful, 
-
               for example, when integrating with a program that expects SAX events. 
-
               JDOM can parse an XML file, let the programmer easily and efficiently 
-
               manipulate the document, then fire SAX events to the second program 
-
               directly - no conversion to a serialized format is necessary.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="106"> 
-
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Was 
+              JDOM designed for Java 2?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">Yes, JDOM has 
+              been designed using the <font face="Courier New, Courier, mono">List</font> 
+              and <font face="Courier New, Courier, mono">Map</font> interfaces 
+              from the Java 2 Collections API. The Collections API provides JDOM 
+              with great power and flexibility through standard APIs. We may hear 
+              some ranting for the next three months about this, but we believe 
+              that this is better than hearing ranting starting three months from 
+              now about why we are still using the slow and weak Vector in our 
+              code!</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td height="106"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">I 
               tried to use JDOM and get an error like this:</font></b></font></p>
-
             <pre><font color="#003366">java.lang.NoSuchMethodError
 </font><font color="#003366"> or<br></font><font color="#003366">java.lang.NoClassDefFoundError:
 org/xml/sax/SAXNotRecognizedException </font></pre>
-            <font color="#003366"></font>
-<p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What's 
-
+            <font color="#003366"></font> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What's 
               wrong? </font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">You need to 
               ensure that the <font face="Courier New, Courier, mono">xerces.jar</font> 
               file supplied with the JDOM download is in your classpath <i>before</i> 
@@ -327,45 +258,74 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               </font>exception being thrown. Check your classpath, and try again. 
               If the classpath looks OK, the problematic JAR might also be hiding 
               in the system's standard extension directory. </font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
-          <td height="106"> 
-
-            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Was 
-
-              JDOM designed for Java 2?</font></b></font></p>
-
-            <p><font size="2" face="Arial, Helvetica, sans-serif">Yes, JDOM has 
-
-              been designed using the List and Map interfaces from the Java 2 
-
-              Collections API. The Collections API provides JDOM with great power 
-
-              and flexibility through standard APIs. We may hear some ranting 
-
-              for the next three months about this, but we believe that this is 
-
-              better than hearing ranting starting three months from now about 
-
-              why we are still using the slow and weak Vector in our code!</font></p>
-
-          </td>
-
-        </tr>
-
-        <tr align="left" valign="top"> 
-
           <td> 
-
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I avoid the DOM Level 1 problem in Visual Age for Java?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> When the WTE 
+              feature is added to the workspace, the project 'IBM XML Parser for 
+              Java' is added as well. This project contains old DOM Level 1 'org.w3c.*' 
+              interfaces. JDOM relies on DOM Level 2, and therefore conficts with 
+              this project. The solution is to do the following:</font></p>
+            <ol>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Change workspace 
+                owner to Administrator</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Create open 
+                edition of the project 'IBM XML Parser for Java'</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Delete all 
+                the packages that contain <font face="Courier New, Courier, mono">org.w3c.*</font> 
+                interfaces</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Version the 
+                project.</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Create a 
+                new Project for DOM Level 2 parser such as Xerces</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Import all 
+                Xerces classes including <font face="Courier New, Courier, mono">org.w3c.*</font> 
+                interfaces (you can use a completly different project for those 
+                interfaces if you want to work with other parsers)</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Version the 
+                Xerces project</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Create a 
+                JDOM project and import jdom classes into it. Version the project</font></li>
+            </ol>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">(Contributed 
+              by Guy Nirpaz)</font></p>
+            <p><font size="2"></font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I avoid the DOM Level 1 problem in WebSphere?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> WebSphere has 
+              the same issue with DOM Level 1 interfaces as VAJ above. The solution 
+              is to do <i>one</i> the following:</font></p>
+            <ul>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">Put the path 
+                to <font face="Courier New, Courier, mono">xerces.jar</font> (or 
+                other DOM Level 2 interfaces) in the variable '<font face="Courier New, Courier, mono">com.ibm.ejs.sm.adminserver.classpath</font>' 
+                in the file <font face="Courier New, Courier, mono">admin.config</font>. 
+                This resides in <font face="Courier New, Courier, mono">$WAS_ROOT$/bin</font> 
+                before all other variables.</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">or, if you 
+                run WAS <font face="Courier New, Courier, mono">$WAS_ROOT/bin/debug/adminserver.{bat|sh}</font> 
+                add a line '<font face="Courier New, Courier, mono">set WAS_CP=xerces.jar</font>' 
+                (or other DOM Level 2 interfaces) before other set <font face="Courier New, Courier, mono">WAS_CP</font> 
+                commands.</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">or, add JDOM 
+                to the application server CLASSPATH, using either the <font face="Courier New, Courier, mono">admin.cfg</font> 
+                file or the administration console.</font></li>
+            </ul>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">(Contributed 
+              by Guy Nirpaz)</font></p>
+            </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Does 
-
               JDOM work with JDK 1.1?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Yes. Because 
               JDOM currently has no ties to Java 2 other than the Collections 
               APIs, it's possible for someone with JDK 1.1 plus the collections.jar 
@@ -376,270 +336,147 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               that trigger an import line replace task as part of the build. These 
               scripts are available in the current CVS tree and beginning with 
               beta5.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="71"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Are 
-
               there any performance numbers?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">Not yet. JDOM 
-
               is still really new! Only preliminary numbers have been taken, but 
-
-              they have been extremely promising, and JDOM hasn't even begun to 
-
-              be tuned yet!</font></p>
-
+              they have been extremely promising. And JDOM hasn't been tuned yet!</font></p>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="209"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
-
               does JDOM integrate with XSLT?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">This is really 
-
               just a specific application of <a href="#dom_and_sax">How does JDOM 
-
               work with DOM and SAX</a>? Take, for example, the Apache Xalan XSLT 
-
               processor. The <font face="Courier New, Courier, mono">org.apache.xalan.xslt.XSLTProcessor</font> 
-
               class takes as input an input document, an input stylesheet, and 
-
               a target to output to. The two input parameters must be in the form 
-
               of an <font face="Courier New, Courier, mono">org.apache.xalan.xslt.XSLTInputSource</font>, 
-
               which can be constructed from an <font face="Courier New, Courier, mono">InputStream</font>. 
-
               Lucky for you, the <font face="Courier New, Courier, mono">org.jdom.XMLOutputter</font> 
-
               class writes a JDOM Document to an <font face="Courier New, Courier, mono">OutputStream</font>! 
-
               So take your JDOM output, pipe it into your XSLT input (with a <font face="Courier New, Courier, mono">PipedInputStream</font> 
-
               and <font face="Courier New, Courier, mono">PipedOutputStream</font>), 
-
               and then simply supply a stylesheet and output as in any other Java 
-
-              and XML application. A sample will be in the upcoming CVS tree.</font> 
-
-            </p>
-
+              and XML application.</font></p>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="173"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">What 
-
               features of XML are not fully handled by JDOM?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Eventually 
-
               we expect the answer to this question to be "None". Our goal is 
-
               to achieve full XML spec compliance while also maintaining an API 
-
               that is easy to learn and use, as well as fast and lightweight. 
-
               We think it's definitely possible, especially with the great feedback 
-
               and ideas from members of the jdom-interest mailing list. Here are 
-
               the current outstanding issues: </font></p>
-
             <p> 
-
             <font face="Arial, Helvetica, sans-serif" size="2"> 
-
             <ul>
-
               <li><font face="Arial, Helvetica, sans-serif" size="2"> Entities 
-
                 and entity references are an open area of development, and we 
-
                 are still experimenting with how Java developers want to handle 
-
                 entities while remaining true to the XML specification.</font></li>
-
             </ul>
-
             </font></td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
-
               JDOM thread safe?</font></b></font></p>
-
             <p> 
-
             <font size="2" face="Arial, Helvetica, sans-serif"> The core API has 
-
             intentionally been left thread unsafe. In other words, there are no 
-
             synchronized blocks within org.jdom. This decision makes sense because 
-
             we expect the primary JDOM use cases to be: 
-
             <ul>
-
-              <li>Single thread reads a XML stream into JDOM and looks at it read 
-
-                only 
-
+              <li>Single thread reads an XML stream into JDOM and looks at it 
+                read only 
               <li>Single thread reads an XML stream into JDOM and modifies it 
-
               <li>Single thread reads an XML stream into JDOM and makes it available 
-
                 to a run time system for read only access 
-
             </ul>
-
             The use case where a "Single thread reads an XML stream into JDOM 
-
             and exposes it to multiple threads to modify its contents" is fairly 
-
             rare. In that case, JDOM can still be made thread safe but the programmer 
-
             simply has to perform their own synchronization, perhaps as synchronizing 
-
             on the Document instance. </font> 
-
             <p></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="137"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
-
               does <font face="Courier New, Courier, mono">equals()</font> only 
-
               do a <font face="Courier New, Courier, mono">==</font> check?</font></b></font></p>
-
-            <p> 
-
-            <font size="2" face="Arial, Helvetica, sans-serif"> In JDOM two objects 
-
-            are only equal if they're the exact same object. This lets a call 
-
-            like <font face="Courier New, Courier, mono">list.remove(elem)</font> 
-
-            remove only the exact <font face="Courier New, Courier, mono">Element</font> 
-
-            passed in, not any element that's equivalent. This's a very important 
-
-            distinction. Doing a full <font face="Courier New, Courier, mono">equals()</font> 
-
-            on an <font face="Courier New, Courier, mono">Element</font> would 
-
-            require recursing down the tree, and in general we believe it unlikely 
-
-            you'll want to know if this element and all its children are equivalent 
-
-            to another one. If you really do want to know you can write some comparison 
-
-            code yourself that checks only as much as you want to check (maybe 
-
-            the name/namespaces only) instead of doing a full recurse.</font></td>
-
-        </tr>
-
-        <tr align="left" valign="top"> 
-
-          <td height="61"> 
-
-            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
-
-              is <font face="Courier New, Courier, mono">equals()</font> declared 
-
-              final?</font></b></font></p>
-
-            <p> <font size="2" face="Arial, Helvetica, sans-serif"> The <font face="Courier New, Courier, mono">equals()</font> 
-
-              methods are final for JDOM classes so that a subclass can't break 
-
-              the <font face="Courier New, Courier, mono">==</font> behavior that's 
-
-              required for calls like <font face="Courier New, Courier, mono">list.remove(elem)</font> 
-
-              to work as designed.</font>
-
+            <p> <font size="2" face="Arial, Helvetica, sans-serif"> In JDOM two 
+              objects are only equal if they're the exact same object. This lets 
+              a call like <font face="Courier New, Courier, mono">list.remove(elem)</font> 
+              remove only the exact <font face="Courier New, Courier, mono">Element</font> 
+              passed in, not any element that's equivalent. This's a very important 
+              distinction. Doing a full <font face="Courier New, Courier, mono">equals()</font> 
+              on an <font face="Courier New, Courier, mono">Element</font> would 
+              require recursing down the tree, and in general we believe it unlikely 
+              you'll want to know if this element and all its children are equivalent 
+              to another one. If you really do want to know you can write some 
+              comparison code yourself that checks only as much as you want to 
+              check (maybe the name/namespaces only) instead of doing a full recurse.</font>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="61"> 
-
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              is <font face="Courier New, Courier, mono">equals()</font> declared 
+              final?</font></b></font></p>
+            <p> <font size="2" face="Arial, Helvetica, sans-serif"> The <font face="Courier New, Courier, mono">equals()</font> 
+              methods are final for JDOM classes so that a subclass can't break 
+              the <font face="Courier New, Courier, mono">==</font> behavior that's 
+              required for calls like <font face="Courier New, Courier, mono">list.remove(elem)</font> 
+              to work as designed.</font> 
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td height="61"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
               do I construct a Document from a String?</font></b></font></p>
-
             <p> <font size="2" face="Arial, Helvetica, sans-serif"> You use standard 
               Java IO library calls.</font> Wrap the <font face="Courier New, Courier, mono" size="2">String</font> 
               with a <font size="2" face="Courier New, Courier, mono">StringReader</font> 
-              and pass the reader to <font face="Courier New, Courier, mono" size="2">SAXBuilder</font>:
+              and pass the reader to <font face="Courier New, Courier, mono" size="2">SAXBuilder</font>: 
             <pre>Document doc = builder.build(new StringReader(xml));</pre>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="61"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
               do I remove an Element or other content?</font></b></font></p>
-
             <p> <font size="2" face="Arial, Helvetica, sans-serif"> Use the methods 
               on the <font face="Courier New, Courier, mono">List</font> returned 
               by <font face="Courier New, Courier, mono">getChildren()</font> 
               or <font face="Courier New, Courier, mono">getMixedContent()</font>. 
               JDOM doesn't need special methods because the methods already exist 
               in <font face="Courier New, Courier, mono">List</font>. For example 
-              to remove an element from its parent:</font>
-            <pre>element.getParent().getChildren().remove(element);</pre>
-            <p> Other methods on <font face="Courier New, Courier, mono" size="2">List</font> 
-              provide options to remove all children, add a child at a given location, 
-              and so on.</p>
+              to remove an element from a list of children:</font> 
+            <pre>List children = parent.getChildren();
+children.remove(element); // given child
+children.remove(0);       // first child</pre>
+            <p> <font face="Arial, Helvetica, sans-serif" size="2">Other methods 
+              on List provide options to remove all children, add a child at a 
+              given location, and so on.</font></p>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td height="61"> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
               do I move an Element from one place to another?</font></b></font></p>
-
             <p> <font size="2" face="Arial, Helvetica, sans-serif"> There's no 
               need for node &quot;importing&quot; like there is with DOM. Just 
               remove the element from its current place, then add the element 
@@ -647,18 +484,181 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               will naturally &quot;tag&quot; along for the ride. You have to remove 
               the element before adding it to its new place because elements may 
               have only one parent returned by <font face="Courier New, Courier, mono">getParent()</font>.</font> 
+            <pre>newParent.addContent(elt.detach());</pre>
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
+          <td height="61"> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I copy an Element from one place to another?</font></b></font></p>
+            <p> <font size="2" face="Arial, Helvetica, sans-serif"> There's no 
+              need for node &quot;importing&quot; like there is with DOM. Just 
+              clone the element being copied and add its clone in its new place. 
+              You have to clone the element before adding it to its new place 
+              because elements may have only one parent returned by <font face="Courier New, Courier, mono">getParent()</font>.</font> 
+            <pre>newParent.addContent(elt.clone());</pre>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td height="61"> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Can 
+              an element or attribute name contain a colon?</font></b></font></p>
+            <p> <font size="2" face="Arial, Helvetica, sans-serif"> The XML 1.0 
+              specification specifically reserves the colon character for use 
+              with XML Namespaces. No other use is compliant with XML 1.0. Therefore 
+              JDOM does not allow you to create element and attribute names that 
+              contain colons except when using namespaces. Furthermore, because 
+              of the way namespaces are implemented in JDOM, you cannot simply 
+              create an Element or Attribute with a fully qualified name like 
+              <font face="Courier New, Courier, mono">svg:title</font>. That is 
+              you cannot do this:</font>
+            <pre>Element e = new Element(&quot;svg:title&quot;);</pre>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Instead you 
+              must split the two parts into a <font face="Courier New, Courier, mono">Namespace</font> 
+              and a local name. This is the proper JDOM way to create an element 
+              in a namespace:</font></p>
+            <pre>Element e = 
+  new Element(&quot;title&quot;, &quot;svg&quot;, &quot;http://www.w3.org/2000/svg&quot;);</pre>
+            <p><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif" size="2">The 
+              first argument is the local name. The second argument is the prefix. 
+              The third argument is the namespace URI.</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">The <font face="Courier New, Courier, mono">xml:lang</font> 
+              and <font face="Courier New, Courier, mono">xml:space</font> attributes 
+              are special cases that are allowed only because the XML 1.0 specification 
+              defined them before namespaces were current, and therefore a document 
+              that is not otherwise using namespaces may still want to include 
+              these two attributes.</font></p>
+            <p></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
           <td> 
-
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              do all new lines appear as \n, even on Windows?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> According to 
+              section 2.11 of the XML Recommendation, 2nd edition:</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">To simplify 
+              the tasks of applications, an XML processor must normalize line 
+              breaks in parsed entities to #xA either by translating the two-character 
+              sequence #xD #xA and any #xD that is not followed by #xA to #xA 
+              on input before parsing, or by using some other method such that 
+              the characters passed to the application are the same as if it did 
+              this translation. </font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">In other words, 
+              this is exactly what's supposed to happen.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              does setText(&quot;&amp;#160;&quot;) not do what I want?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> When you pass 
+              a string into a method like <font face="Courier New, Courier, mono">setText()</font> 
+              JDOM assumes it's just that, a string, not a fragment of XML. For 
+              example, when you call:</font></p>
+            <pre>element.setText(&quot;&amp;#160;&quot;)</pre>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">JDOM assumes 
+              you want to set the content to the string containing the six characters 
+              <font face="Courier New, Courier, mono">&amp; # 1 6 0</font> <font face="Courier New, Courier, mono">;</font>. 
+              It does not parse it to attempt to understand it as XML first. Thus 
+              when you output the text using <font face="Courier New, Courier, mono">XMLOutputter</font> 
+              it will naturally escape the special ampersand character and output 
+              <font face="Courier New, Courier, mono">&amp;amp;#160;</font>. The 
+              solution is to pass regular Unicode characters to the setText() 
+              method or, if </font><font face="Arial, Helvetica, sans-serif" size="2">you 
+              have text data that you want to be interpreted as XML, pass it through 
+              an XML parser before it goes into JDOM. This is what the SAXBuilder 
+              and DOMBuilder classes do.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">When 
+              using an IDE debugger why do I see a strange ArrayIndexOutOfBoundsException?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> Some parsers 
+              (Xerces included) use this exception as part of their standard operating 
+              procedure, internally throwing and catching the exception. No code 
+              outside the library is meant see it. However, IDE debuggers are 
+              often configured to report any time this exception is thrown, and 
+              thus they expose the exception. It can be safely ignored.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I add a PI or Comment before the root element?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> You must access 
+              the document content as a <font face="Courier New, Courier, mono">List</font>. 
+              Either get the list and add content to its head, or set the list 
+              of content explicitly.</font></p>
+            <pre>doc.getMixedContent().add(0, pi); </pre>
+            <pre><font size="2"></font><font face="Arial, Helvetica, sans-serif">or</font></pre>
+            <pre>doc.setMixedContent(listOfContent);</pre>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I avoid getting an OutOfMemoryError?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> Most JVMs have 
+              an option to increase their maximum heap size, which is the maximum 
+              amount of memory the JVM can use for its objects. In the JDK 1.2 
+              you can set your initial heap size to 32 Megs and maximum heap size 
+              to 64 Megs with the following command:</font></p>
+            <pre><font face="Courier New, Courier, mono">java -Xms64m -Xmx64m SomeClass</font></pre>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Of course, if 
+              your document is larger than available virtual memory, there's not 
+              much you can do short of helping us create a deferred-build document 
+              implementation.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              does my file encoding on output not match the encoding on input?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> The default 
+              character encoding used by <font face="Courier New, Courier, mono">XMLOutputter</font> 
+              is UTF-8, a variable-length encoding that can represent all Unicode 
+              characters. This can be changed with a call to <font face="Courier New, Courier, mono">outputter.setEncoding()</font>. 
+              It would be nice if <font face="Courier New, Courier, mono">XMLOutputter</font> 
+              could default to the original encoding for a file, but unfortunately 
+              parsers don't indicate the original encoding. You have to set it 
+              programatically. </font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">This issue most 
+              often affects people with documents in the common ISO-8859-1 (Latin-1) 
+              encoding who use characters like <font face="Courier New, Courier, mono">&ntilde;</font> 
+              but aren't familiar with having to think about encodings. The tip 
+              to remember is that with these documents you must set the output 
+              encoding to ISO-8859-1, otherwise characters in the range 128-255 
+              will be output using a double byte encoding in UTF-8 instead of 
+              the normal single byte encoding of ISO-8859-1.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
+              does passing a document through a socket sometimes hang the parser?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> The problem 
+              is that several XML parsers close the input stream when they read 
+              EOF (-1). This is true of Xerces, which is JDOM's default parser. 
+              It is also true of Crimson. Unfortunately, closing a <font face="Courier New, Courier, mono">SocketInputStream</font> 
+              closes the underlying <font face="Courier New, Courier, mono">SocketImpl</font>, 
+              setting the file descriptor to <font face="Courier New, Courier, mono">null</font>. 
+              To workaround, protect your socket's input stream with an <font face="Courier New, Courier, mono">InputStream</font> 
+              wrapper that doesn't close the underlying stream (override the <font face="Courier New, Courier, mono">close()</font> 
+              method), or read everything into a buffer before handing off to 
+              the JDOM builder:</font></p>
+            <pre>byte[] buf = new byte[length];
+new DataInputStream(inputStream).readFully(buf);
+InputStream in = new ByteArrayInputStream(buf);
+<font size="2">
+</font><font face="Arial, Helvetica, sans-serif">(Contributed by Joseph Bowbeer)</font></pre>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Is 
-
               there an archive for the JDOM mailing lists?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> Yes, all the 
               messages since the beginning are available for your Web-based perusal. 
               We're working on getting a search engine up for the site that will 
@@ -667,105 +667,84 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
               jdom-interest archives are available at <a href="http://lists.denveronline.net/lists/jdom-interest/">http://lists.denveronline.net/lists/jdom-interest/</a>, 
               jdom-announce archives are at <a href="http://lists.denveronline.net/lists/jdom-announce/">http://lists.denveronline.net/lists/jdom-announce/</a>, 
               and jdom-commits archives are at <a href="http://lists.denveronline.net/lists/jdom-commits/">http://lists.denveronline.net/lists/jdom-commits/</a>.</font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><a name="unsubscribe"></a>How 
-
               do I unsubscribe from a mailing list?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> The URL to 
-
               manage your list membership (including subscription) is attached 
-
               at the bottom of every list message. It should be something like 
-
               http://lists.denveronline.net/mailman/options/jdom-interest/<i>youraddr@yourhost.com</i>. 
-
               Make sure to replace "youraddr" with your address and "yourhost" 
-
               with your host. For jdom-announce replace "interest" with "announce" 
-
               in the URL. </font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
-
               do I post to the mailing list from multiple addresses?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> For spam protection, 
-
               only members of the mailing list may post. To post from multiple 
-
               accounts, subscribe each account and set the "Disable mail delivery" 
-
               feature to "On" for all the extra accounts. You can set that feature 
-
               at the URL given in the <a href="#unsubscribe">previous answer</a>. 
-
               </font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I submit a bug report?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> If you believe 
+              you found a bug in JDOM, please follow this procedure:</font></p>
+            <ol>
+              <li><font size="2" face="Arial, Helvetica, sans-serif">Check the 
+                <font face="Courier New, Courier, mono"><a href="http://cvs.jdom.org/cgi-bin/viewcvs.cgi/jdom/TODO.txt">TODO.txt</a></font> 
+                file in the root of the distribution to see if it's a known issue.</font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif">Check if 
+                the problem occurs when using the <a href="http://cvs.jdom.org">latest 
+                daily snapshot</a> of JDOM. Odds are good the bug has already 
+                been fixed since the last beta.</font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif">If the bug 
+                occurs with the latest snapshot, post to the <a href="../involved/lists.html">jdom-interest</a> 
+                mailing list; make sure you're a subscriber first as only subscribers 
+                can post.</font></li>
+              <li><font size="2" face="Arial, Helvetica, sans-serif">In the bug 
+                report, give as much information as possible -- the stack trace, 
+                a reproducible and short code example, the XML file causing problems. 
+                Make sure to state the version of JDOM used (which day's snapshot).</font></li>
+              <li><font face="Arial, Helvetica, sans-serif" size="2">If you have 
+                a patch to fix the bug, please submit that along with the problem 
+                report.</font></li>
+            </ol>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Should 
-
               I ask general XML questions to Jason and Brett?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif"> No, they're 
-
-              busy enough already. But you can pre-order Brett's book <i><a href="http://www.oreilly.com/catalog/javaxml">Java 
-
-              and XML</a></i>. In the meanwhile, there are plenty of other XML 
-
-              introductory books like <i><a
+              busy enough already. But you can order Brett's book <i><a href="http://www.oreilly.com/catalog/javaxml">Java 
+              and XML</a></i> or one of the other XML introductory books like 
+              <i><a
 
 href="http://www.amazon.com/exec/obidos/ASIN/0764532367/jasonhunter">XML Bible</a></i> 
-
               by Elliotte Rusty Harold (one of our prominent jdom-interest list 
-
               members). </font></p>
-
           </td>
-
         </tr>
-
         <tr align="left" valign="top"> 
-
           <td> 
-
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Where 
-
               can I learn more?</font></b></font></p>
-
             <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM API documentation, 
-
               slides from the initial JDOM announcement, and other helpful resources 
-
               can all be downloaded <a href="/downloads/docs.html">here</a>.</font></p>
-
           </td>
-
         </tr>
-
       </table>
 
     </td>
