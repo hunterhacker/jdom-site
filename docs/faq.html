@@ -643,7 +643,7 @@ Element y = x.getChild("y", ns);
 Element z = y.getChild("z", ns);
 </pre>
             <p>&nbsp;</p>
-            </td>
+          </td>
         </tr>
         <tr align="left" valign="top"> 
           <td> 
@@ -857,6 +857,80 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
               the EntityResolver only suppresses the DocType.</font></p>
             <p><font face="Arial, Helvetica, sans-serif"></font></p>
           </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              do I validate against a schema when using JDOM?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> JDOM doesn't 
+              have it's own parser; it uses standard parsers like Xerces to do 
+              the heavy lifting. If you want schema validation make sure you choose 
+              a parser that supports schemas. Xerces 2 is a good choice (get it 
+              from <a href="http://xml.apache.org">http://xml.apache.org</a>). 
+              You also need to use code JDOM Beta 8 or later. </font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">To specify the 
+              parser JDOM uses, you can either configure JAXP appropriately (since 
+              JDOM uses JAXP if it's available, see the end of this entry for 
+              details) or you can explicitly pass the name of the parser to the 
+              SAXBuilder constructor. For Xerces 2 the parser class is <font face="Courier New, Courier, mono">org.apache.xerces.parsers.SAXParser</font>. 
+              You must also </font><font face="Arial, Helvetica, sans-serif" size="2">enable 
+              parser validation by passing &quot;true&quot; when creating a SAXBuilder.</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>SAXBuilder 
+              builder = new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
+              true);</code></font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Next, you tell 
+              the parser (Xerces) you want to validate against a schema (or schemas), 
+              and you pass the parser information about those schema. Different 
+              parsers do this in different ways. In Xerces you do this by setting 
+              special 'features' and 'properties' of the parser. JDOM exposes 
+              these parser settings with the setFeature() and setProperty() methods 
+              on SAXBuilder. These pass-through methods were added after Beta 
+              7, which is why you need Beta 8 or above.</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Schemas are 
+              enabled by setting the feature &quot;http://apache.org/xml/features/validation/schema&quot; 
+              to true.</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>builder.setFeature(&quot;http://apache.org/xml/features/validation/schema&quot;, 
+              true);</code></font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">Schema locations 
+              are given by setting the property &quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot; 
+              to a list of whitespace separated name-value pairs. The 'name' is 
+              the namespace the schema is associated with, the 'value' is the 
+              location of the schema for that namespace. For example:</font></p>
+            <p><code>builder.setProperty(<br>
+              &nbsp; </code><code>"http://apache.org/xml/properties/schema/external-schemaLocation", 
+              &nbsp;&nbsp;"http://www.w3.org/2001/12/soap-envelope soap-envelope.xsd" 
+              + " " + &nbsp;&nbsp;"http://kevinj.develop.com/weblog/weblog.xsd 
+              weblog.xsd");</code></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">The above example 
+              shows how to validate against multiple schemas -- against the SOAP 
+              1.2 schema where the namespace is http://www.w3.org/2001/12/soap-envelope 
+              and the and against a schema for namespace http://kevinj.develop.com/weblog/weblog.xsd. 
+              The files describing these schemas are in soap-envelope.xsd and 
+              weblog.xsd respectively. You can add as many of these name value 
+              pairs as necessary. The values themselves are URLs. The name value 
+              pairs follow the meaning given in the Schema recommendation (<a href="http://www.w3.org/TR/xmlschema-1/#schema-loc">http://www.w3.org/TR/xmlschema-1/#schema-loc</a>).</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">The complete 
+              code looks like this:</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>SAXBuilder 
+              builder = new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
+              true);<br>
+              builder.setFeature(&quot;http://apache.org/xml/features/validation/schema&quot;, 
+              true);<br>
+              builder.setProperty(<br>
+              &nbsp;&nbsp;&quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot;,<br>
+              &nbsp;&nbsp;&quot;http://www.w3.org/2001/12/soap-envelope soap-envelope.xsd&quot; 
+              + &quot; &quot; +<br>
+              &nbsp;&nbsp;&quot;http://kevinj.develop.com/weblog/weblog.xsd weblog.xsd&quot;);<br>
+              Document doc = builder.build(xml);</code></font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2">If you want 
+              to use JAXP to select the parser, you can skip specifying a class 
+              to the SAXBuilder constructor and instead set the system property 
+              &quot;javax.xml.parsers.SAXParserFactory&quot; to the value &quot;org.apache.xerces.jaxp.SAXParserFactoryImpl&quot;. 
+              That tells JAXP to use Xerces' factory to build parsers. If you 
+              like, you can specify this property on the command line:</font></p>
+            <p><font face="Arial, Helvetica, sans-serif" size="2"><code>java -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl 
+              ...</code></font></p>
+            </td>
         </tr>
         <tr align="left" valign="top"> 
           <td> 
