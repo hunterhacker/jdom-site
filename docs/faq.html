@@ -364,20 +364,16 @@ org/xml/sax/SAXNotRecognizedException </font></pre>
           <td height="209"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
               does JDOM integrate with XSLT?</font></b></font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif">This is really 
-              just a specific application of <a href="#dom_and_sax">How does JDOM 
-              work with DOM and SAX</a>? Take, for example, the Apache Xalan XSLT 
-              processor. The <font face="Courier New, Courier, mono">org.apache.xalan.xslt.XSLTProcessor</font> 
-              class takes as input an input document, an input stylesheet, and 
-              a target to output to. The two input parameters must be in the form 
-              of an <font face="Courier New, Courier, mono">org.apache.xalan.xslt.XSLTInputSource</font>, 
-              which can be constructed from an <font face="Courier New, Courier, mono">InputStream</font>. 
-              Lucky for you, the <font face="Courier New, Courier, mono">org.jdom.XMLOutputter</font> 
-              class writes a JDOM Document to an <font face="Courier New, Courier, mono">OutputStream</font>! 
-              So take your JDOM output, pipe it into your XSLT input (with a <font face="Courier New, Courier, mono">PipedInputStream</font> 
-              and <font face="Courier New, Courier, mono">PipedOutputStream</font>), 
-              and then simply supply a stylesheet and output as in any other Java 
-              and XML application.</font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif">There are many 
+              ways to do XSL transforms with JDOM. The most straightforward way 
+              is to use the standard JAXP <font face="Courier New, Courier, mono">Transformer</font> 
+              interface and the <font face="Courier New, Courier, mono">JDOMSource</font>/<font face="Courier New, Courier, mono">JDOMResult</font> 
+              classes found in the <font face="Courier New, Courier, mono">jdom-contrib</font> 
+              module. Look to the sample named <font face="Courier New, Courier, mono">XSLTransform</font> 
+              for an example (<font face="Courier New, Courier, mono">jdom-contrib/samples</font>). 
+              In the future, the <font face="Courier New, Courier, mono">JDOMSource</font>/<font face="Courier New, Courier, mono">JDOMResult</font> 
+              classes will either be integrated into JAXP itself or moved into 
+              the JDOM core.</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
