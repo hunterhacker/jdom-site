@@ -496,7 +496,7 @@ children.remove(0);       // first child</pre>
               clone the element being copied and add its clone in its new place. 
               You have to clone the element before adding it to its new place 
               because elements may have only one parent returned by <font face="Courier New, Courier, mono">getParent()</font>.</font> 
-            <pre>newParent.addContent(elt.clone());</pre>
+            <pre>newParent.addContent((Element)elt.clone());</pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
