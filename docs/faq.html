@@ -644,7 +644,9 @@ children.remove(0);       // first child</pre>
               It is also true of Crimson. Unfortunately, closing a <font face="Courier New, Courier, mono">SocketInputStream</font> 
               closes the underlying <font face="Courier New, Courier, mono">SocketImpl</font>, 
               setting the file descriptor to <font face="Courier New, Courier, mono">null</font>. 
-              To workaround, protect your socket's input stream with an <font face="Courier New, Courier, mono">InputStream</font> 
+              The socket's output stream is useless after this, so your application 
+              will be unable to send a response. To workaround, protect your socket's 
+              input stream with an <font face="Courier New, Courier, mono">InputStream</font> 
               wrapper that doesn't close the underlying stream (override the <font face="Courier New, Courier, mono">close()</font> 
               method), or read everything into a buffer before handing off to 
               the JDOM builder:</font></p>
