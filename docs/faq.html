@@ -1318,20 +1318,18 @@ doc.setContent(listOfContent);
                 output not match the encoding on
                 input?</font></b></font></a></p>
 
-                <p><font size="2" face=
-                "Arial, Helvetica, sans-serif">The default
-                character encoding used by <font face=
-                "Courier New, Courier, mono">XMLOutputter</font> is
-                UTF-8, a variable-length encoding that can
-                represent all Unicode characters. This can be
-                changed with a call to <font face=
-                "Courier New, Courier, mono">outputter.setEncoding()</font>.
-                It would be nice if <font face=
-                "Courier New, Courier, mono">XMLOutputter</font>
-                could default to the original encoding for a file,
-                but unfortunately parsers don't indicate the
-                original encoding. You have to set it
-                programatically.</font></p>
+                
+            <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">The default character encoding 
+              used by <font face=
+                "Courier New, Courier, mono">XMLOutputter</font> is UTF-8, a variable-length 
+              encoding that can represent all Unicode characters. This can be 
+              changed with a call to <font face="Courier New, Courier, mono">format.setEncoding()</font> 
+              on the <code>Format</code> object passed to <code>XMLOutputter</code>. 
+              It would be nice if <font face=
+                "Courier New, Courier, mono">XMLOutputter</font> could default 
+              to the original encoding for a file, but unfortunately parsers don't 
+              indicate the original encoding. You have to set it programatically.</font></p>
 
                 <p><font size="2" face=
                 "Arial, Helvetica, sans-serif">This issue most
