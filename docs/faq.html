@@ -941,7 +941,33 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
           </td>
         </tr>
         <tr align="left" valign="top"> 
-          <td> <a name="schemas"></a> 
+          <td> <a></a> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
+              can I perform in-memory validation against a DTD or Schema?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> Currently you 
+              can't do this, in JDOM or any other Java document object model API. 
+              However, this is something we'd like JDOM to support, and we have 
+              a volunteer who's working on it.</font></p>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> <a></a> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">JDOM 
+              ensures the document in memory is always well-formed. Can JDOM also 
+              ensure the document in memory is always valid?</font></b></font></p>
+            <p><font size="2" face="Arial, Helvetica, sans-serif"> No, it's our 
+              current belief that it's better to expose a checkValid() type of 
+              call than to attempt constant validation checking. One reason is 
+              performance. A second reason is that you have a chicken-and-egg 
+              problem where for example an element needs exactly two child elements 
+              to be valid, but after adding either child the document will be 
+              in a temporarily invalid state. To work around this would require 
+              something like transactional modifications, and that's a lot of 
+              overhead for little gain.</font></p>
+            </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td> <a></a> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Why 
               do I get an IndexOutOfBoundsException or ConcurrentModificationException 
               on looping?</font></b></font></p>
@@ -975,8 +1001,8 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
               concurrent modification. The solution is to use the Iterator's remove() 
               method instead of detach() in this situation:<br>
               </font></code></font> </p>
-            <font face="Courier New, Courier, mono" size="3"><code><font face="Arial, Helvetica, sans-serif" size="2"></font></code></font>
-<pre><font face="Courier New, Courier, mono" size="3"><code><font face="Arial, Helvetica, sans-serif" size="2"> <font face="Courier New, Courier, mono" size="3"><code>List children = root.getChildren(&quot;foo&quot;);
+            <font face="Courier New, Courier, mono" size="3"><code><font face="Arial, Helvetica, sans-serif" size="2"></font></code></font> 
+            <pre><font face="Courier New, Courier, mono" size="3"><code><font face="Arial, Helvetica, sans-serif" size="2"> <font face="Courier New, Courier, mono" size="3"><code>List children = root.getChildren(&quot;foo&quot;);
  Iterator itr = children.iterator();
  while (itr.hasNext()) {
    Element child = (Element) itr.next();
@@ -984,88 +1010,6 @@ builder.setEntityResolver(new NoOpEntityResolver());</pre>
    otherRoot.addContent(child);
  }
 <font face="Arial, Helvetica, sans-serif" size="2"></font></code></font></font></code></font></pre>
-            </td>
-        </tr>
-        <tr align="left" valign="top"> 
-          <td> <a name="schemas"></a> 
-            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">How 
-              do I validate against a schema when using JDOM?</font></b></font></p>
-            <p><font size="2" face="Arial, Helvetica, sans-serif"> JDOM doesn't 
-              have it's own parser; it uses standard parsers like Xerces to do 
-              the heavy lifting. If you want schema validation make sure you choose 
-              a parser that supports schemas. Xerces 2 is a good choice (get it 
-              from <a href="http://xml.apache.org">http://xml.apache.org</a>). 
-              You also need to use code JDOM Beta 8 or later. </font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">To specify the 
-              parser JDOM uses, you can either configure JAXP appropriately (since 
-              JDOM uses JAXP if it's available, see the end of this entry for 
-              details) or you can explicitly pass the name of the parser to the 
-              SAXBuilder constructor. For Xerces 2 the parser class is <font face="Courier New, Courier, mono">org.apache.xerces.parsers.SAXParser</font>. 
-              You must also </font><font face="Arial, Helvetica, sans-serif" size="2">enable 
-              parser validation by passing &quot;true&quot; when creating a SAXBuilder.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder builder 
-              =<br>
-              &nbsp; new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
-              true);</code></font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">Next, you tell 
-              the parser (Xerces) you want to validate against a schema (or schemas), 
-              and you pass the parser information about those schema. Different 
-              parsers do this in different ways. In Xerces you do this by setting 
-              special 'features' and 'properties' of the parser. JDOM exposes 
-              these parser settings with the setFeature() and setProperty() methods 
-              on SAXBuilder. These pass-through methods were added after Beta 
-              7, which is why you need Beta 8 or above.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">Schemas are 
-              enabled by setting the feature &quot;http://apache.org/xml/features/validation/schema&quot; 
-              to true.</font></p>
-            <p><font face="Arial, Helvetica, sans-serif"><code>builder.setFeature(<br>
-              &nbsp; </code></font><font face="Arial, Helvetica, sans-serif"><code>&quot;http://apache.org/xml/features/validation/schema&quot;, 
-              true);</code></font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">Schema locations 
-              are given by setting the property &quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot; 
-              to a list of whitespace separated name-value pairs. The 'name' is 
-              the namespace the schema is associated with, the 'value' is the 
-              location of the schema for that namespace. For example:</font></p>
-            <p><code>builder.setProperty(<br>
-              &nbsp; </code><code>"http://apache.org/xml/properties/schema/external-schemaLocation", 
-              &nbsp;&nbsp;"http://www.w3.org/2001/12/soap-envelope soap-envelope.xsd" 
-              + " " + &nbsp;&nbsp;"http://kevinj.develop.com/weblog/weblog.xsd 
-              weblog.xsd");</code></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">The above example 
-              shows how to validate against multiple schemas -- against the SOAP 
-              1.2 schema where the namespace is http://www.w3.org/2001/12/soap-envelope 
-              and the and against a schema for namespace http://kevinj.develop.com/weblog/weblog.xsd. 
-              The files describing these schemas are in soap-envelope.xsd and 
-              weblog.xsd respectively. You can add as many of these name value 
-              pairs as necessary. The values themselves are URLs. The name value 
-              pairs follow the meaning given in the Schema recommendation (<a href="http://www.w3.org/TR/xmlschema-1/#schema-loc">http://www.w3.org/TR/xmlschema-1/#schema-loc</a>).</font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">The complete 
-              code looks like this:</font></p>
-            <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder builder 
-              =<br>
-              &nbsp; new SAXBuilder(&quot;org.apache.xerces.parsers.SAXParser&quot;, 
-              true);<br>
-              builder.setFeature(<br>
-              &nbsp; &quot;http://apache.org/xml/features/validation/schema&quot;, 
-              true);<br>
-              builder.setProperty(<br>
-              &nbsp;&nbsp;&quot;http://apache.org/xml/properties/schema/external-schemaLocation&quot;,<br>
-              &nbsp;&nbsp;&quot;http://www.w3.org/2001/12/soap-envelope soap-envelope.xsd&quot; 
-              + &quot; &quot; +<br>
-              &nbsp;&nbsp;&quot;http://kevinj.develop.com/weblog/weblog.xsd weblog.xsd&quot;);<br>
-              Document doc = builder.build(xml);</code></font></p>
-            <p><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif"></font><font face="Arial, Helvetica, sans-serif" size="2">If 
-              you want to use JAXP to select the parser, you can skip specifying 
-              a class to the SAXBuilder constructor and instead set the system 
-              property &quot;javax.xml.parsers.SAXParserFactory&quot; to the value 
-              &quot;org.apache.xerces.jaxp.SAXParserFactoryImpl&quot;. That tells 
-              JAXP to use Xerces' factory to build parsers. If you like, you can 
-              specify this property on the command line:</font></p>
-            <p><font face="Arial, Helvetica, sans-serif"><code>java -Djavax.xml.parsers.SAXParserFactory=<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.apache.xerces.jaxp.SAXParserFactoryImpl 
-              ...</code></font></p>
-            <p><font face="Arial, Helvetica, sans-serif" size="2">(Contributed 
-              by Kevin Jones)</font></p>
           </td>
         </tr>
         <tr align="left" valign="top"> 
