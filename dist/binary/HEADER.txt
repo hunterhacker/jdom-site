@@ -1,4 +1,5 @@
-NOTICE: The listings lower in the page represent later releases.
+NOTICE: The number after the "b" is the beta number.  Higher numbers are
+later.
 
 The "contrib" package contains user-contributed software.  The "test"
 package contains unit tests.  These are for more advanced users.
