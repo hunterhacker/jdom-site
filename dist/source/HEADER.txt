@@ -1,1 +1,4 @@
 NOTICE: The listings lower in the page represent later releases.
+
+The "contrib" package contains user-contributed software.  The "test"
+package contains unit tests.  These are for more advanced users.
