@@ -1,6 +1,6 @@
-NOTICE: The number after the "b" is the beta number.  Higher numbers are
-later.  Any -rc1 or -rc2 stands for "release candidate" meaning the beta
-is being tested before official release as beta.
+NOTICE: Any number after a "b" like jdom-1.1-b2 is a beta number.  Higher
+numbers are later.  Any -rc1 or -rc2 stands for "release candidate" meaning
+the release is being tested before official release.
 
 The "contrib" package contains user-contributed software.  The "test"
 package contains unit tests.  These are for more advanced users.
