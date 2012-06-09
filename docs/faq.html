@@ -167,8 +167,7 @@
                   <li><a href="#a0070">How does JDOM work with DOM
                   and SAX?</a></li>
 
-                  <li><a href="#a0080">Was JDOM designed for Java
-                  2?</a></li>
+                  <li><a href="#a0080">Was JDOM designed for Generics?</a></li>
 
                   <li><a href="#a0090">I tried to use JDOM and get
                   an error like this: java.lang.NoSuchMethodError
@@ -184,8 +183,8 @@
                   <li><a href="#a0120">How do I avoid the DOM Level
                   1 problem in WebSphere?</a></li>
 
-                  <li><a href="#a0130">Does JDOM work with JDK
-                  1.1?</a></li>
+                  <li><a href="#a0130">What JDOM version works with which JDK?
+                  </a></li>
 
                   <li><a href="#a0140">Are there any performance
                   numbers?</a></li>
@@ -268,7 +267,10 @@
                   parser tries to load the DTD file.</a></li>
 
                   <li><a href="#a0360">How do I validate against a
-                  schema when using JDOM?</a></li>
+                  schema when using JDOM 2.x?</a></li>
+
+                  <li><a href="#a0365">How do I validate against a
+                  schema when using JDOM 1.x?</a></li>
 
                   <li><a href="#a0370">How can I perform in-memory
                   validation against a DTD or Schema?</a></li>
@@ -293,7 +295,7 @@
                   list from multiple addresses?</a></li>
 
                   <li><a href="#a0430">Should I ask general XML
-                  questions to Jason and Brett?</a></li>
+                  questions to Jason, Brett, or Rolf?</a></li>
 
                   <li><a href="#a0450">The book <i>Java and XML</i>
                   talks about JDOM 1.0; why the confusion?</a></li>
@@ -402,6 +404,18 @@
                 "Arial, Helvetica, sans-serif">JDOM is available in
                 binary and source form from <a href=
                 "/">http://www.jdom.org</a>.</font></p>
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">JDOM is also available in
+                maven central in the group 'org.jdom' with the artifact
+				ID's <i>jdom</i> for JDOM 1.x versions and <i>jdom2</i>
+				for JDOM 2.x versions: <a href=
+                "http://search.maven.org/#search|ga|1|jdom">JDOM
+				Artifacts on maven</a>.</font></p>
+				
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">The full source code
+				repository is maintained <a href=
+                "https://github.com/hunterhacker/jdom">on GitHub</a>.</font></p>
               </td>
             </tr>
 
@@ -555,17 +569,26 @@ File child = fs.getFile(parent, "aaa.txt");
               <td>
                 <p><a name="a0080"><font face=
                 "Arial, Helvetica, sans-serif"><b><font color=
-                "#003366" size="2">Was JDOM designed for Java
-                2?</font></b></font></a></p>
+                "#003366" size="2">Was JDOM designed for Generics?</font></b></font></a></p>
 
                 <p><font size="2" face=
-                "Arial, Helvetica, sans-serif">Yes, JDOM has been
-                designed using the <font face=
-                "Courier New, Courier, mono">List</font> interface
-                from the Java 2 Collections API. The Collections
-                API provides JDOM with great power and flexibility
-                through standard APIs.</font></p>
-              </td>
+                "Arial, Helvetica, sans-serif">JDOM was designed before Generics, but
+				JDOM 2.x has taken the proven design of JDOM 1.x and extended it to
+				use Generics where possible. Specifically, all
+				Collections-based operations require appropriately typed
+				inputs, and return appropriately typed results. Further,
+				JDOM 2.x takes advantage of other Java 5 features like
+				varargs, and co-variant return types.</font></p>
+				
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">Generics: Element.getAttributes()
+				returns List&lt;Attribute>, Element.getChildren() returns
+				List&lt;Element>, etc.</font></p>
+
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">Co-variant Return Types:
+				Element.clone() returns Element, Text.detach() returns Text, etc.</font></p>
+			  </td>
             </tr>
 
             <tr align="left" valign="top">
@@ -738,18 +761,16 @@ File child = fs.getFile(parent, "aaa.txt");
               <td>
                 <p><a name="a0130"><font face=
                 "Arial, Helvetica, sans-serif"><b><font color=
-                "#003366" size="2">Does JDOM work with JDK
-                1.1?</font></b></font></a></p>
+                "#003366" size="2">What JDOM version works with which JDK?
+				</font></b></font></a></p>
 
                 <p><font size="2" face=
-                "Arial, Helvetica, sans-serif">Not any longer. We
-                maintained compatibility until April 2003 when we
-                fully integrated Jaxen for XPath which does not
-                have a JDK 1.1 port. If you absolutely need JDK 1.1
-                support, pull the JDOM code from CVS as it was at
-                the end of March. There's special build scripts
-                that replaced the Java 2 Collections APIs with a
-                JDK 1.1 version called collections.jar.</font></p>
+                "Arial, Helvetica, sans-serif">JDOM 1.x
+				versions support JDK 1.2 and later.</font></p>
+				
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">JDOM 2.x
+				versions support JDK 1.5 and later.</font></p>
               </td>
             </tr>
 
@@ -761,8 +782,18 @@ File child = fs.getFile(parent, "aaa.txt");
                 numbers?</font></b></font></a></p>
 
                 <p><font face="Arial, Helvetica, sans-serif" size=
-                "2">Dennis Sosnoski runs performance benchmarks. In
-                general, most XML object models are in a similar
+                "2">The JDOM 2.x development process included
+				benchmarks for tracking performance changes. There
+				are performance numbers comparing different
+				<a href="http://hunterhacker.github.com/jdom/jdom2/performance.html">
+				versions of JDOM 2.x</a> as well as comparing the performance of
+				JDOM on different
+				<a href="http://hunterhacker.github.com/jdom/jdom2/performanceJDK.html">
+				JDK versions</a>.</font></p>
+				
+                <p><font face="Arial, Helvetica, sans-serif" size=
+                "2">Dennis Sosnoski in the past ran performance benchmarks.
+				In general, most XML object models are in a similar
                 neighborhood.</font></p>
               </td>
             </tr>
@@ -785,11 +816,10 @@ File child = fs.getFile(parent, "aaa.txt");
                  face=
                 "Courier New, Courier, mono">JDOMResult</font>
                 classes found in the <font face=
-                "Courier New, Courier, mono">org.jdom.transform</font>
+                "Courier New, Courier, mono">org.jdom2.transform</font>
                 package. Look to the sample named <font face=
-                "Courier New, Courier, mono">XSLTransform</font>
-                for an example (<font face=
-                "Courier New, Courier, mono">jdom/samples</font>).</font></p>
+                "Courier New, Courier, mono"><a href="https://github.com/hunterhacker/jdom/raw/master/core/samples/XSLTransform.java">XSLTransform</a></font>
+                for an example.</font></p>
               </td>
             </tr>
 
@@ -802,7 +832,7 @@ File child = fs.getFile(parent, "aaa.txt");
 
                 <p><font size="2" face=
                 "Arial, Helvetica, sans-serif">Yes! It's fully
-                integrated in org.jdom.xpath as of Beta 9, based on
+                integrated in <a href="/docs/apidocs/org/jdom2/xpath/package-summary.html">org.jdom2.xpath</a> as of Beta 9, based on
                 <a href="http://jaxen.org/">Jaxen</a>.</font></p>
               </td>
             </tr>
@@ -828,8 +858,8 @@ File child = fs.getFile(parent, "aaa.txt");
                 safe?</font></b></font></a></p>
 
                 <p><font size="2" face=
-                "Arial, Helvetica, sans-serif">The core API has
-                intentionally been left thread unsafe. In other
+                "Arial, Helvetica, sans-serif">The core API is
+                intentionally <b>not</b> thread safe. In other
                 words, there are no synchronized blocks within
                 org.jdom. This decision makes sense because we
                 expect the primary JDOM use cases to be:</font></p>
@@ -851,14 +881,29 @@ File child = fs.getFile(parent, "aaa.txt");
                   available to a run time system for read only
                   access</font></li>
                 </ul>
-                <font size="2" face=
-                "Arial, Helvetica, sans-serif">T he use case where
+				<p><font size="2" face=
+                "Arial, Helvetica, sans-serif">The use case where
                 a "Single thread reads an XML stream into JDOM and
                 exposes it to multiple threads to modify its
                 contents" is fairly rare. In that case, JDOM can
                 still be made thread safe but the programmer simply
                 has to perform their own synchronization, perhaps
-                as synchronizing on the Document instance.</font> 
+                as synchronizing on the Document instance.</font></p>
+				
+				<p><font size="2" face=
+                "Arial, Helvetica, sans-serif">On the other hand,
+				there are certain functions that require 'operational'
+				parts of JDOM to be Thread safe:</font></p>
+                <ul>
+                  <li><font size="2" face=
+                  "Arial, Helvetica, sans-serif">
+				  org.jdom2.Namespace.getNamespace() is safe</font></li>
+
+                  <li><font size="2" face=
+                  "Arial, Helvetica, sans-serif">All factory-type classes
+				  are safe (XPathFactory, etc.)</font></li>
+
+                </ul>
               </td>
             </tr>
 
@@ -873,7 +918,7 @@ File child = fs.getFile(parent, "aaa.txt");
                 check?</font></b></font></a></p>
 
                 <p><font size="2" face=
-                "Arial, Helvetica, sans-serif">In JDOM two objects
+                "Arial, Helvetica, sans-serif">In JDOM two Content objects
                 are only equal if they're the exact same object.
                 This lets a call like <font face=
                 "Courier New, Courier, mono">list.remove(elem)</font>
@@ -906,12 +951,15 @@ File child = fs.getFile(parent, "aaa.txt");
                 <p><font size="2" face=
                 "Arial, Helvetica, sans-serif">The <font face=
                 "Courier New, Courier, mono">equals()</font>
-                methods are final for JDOM classes so that a
+                methods are final for JDOM Content classes so that a
                 subclass can't break the <font face=
                 "Courier New, Courier, mono">==</font> behavior
                 that's required for calls like <font face=
                 "Courier New, Courier, mono">list.remove(elem)</font>
-                to work as designed.</font></p>
+                to work as designed. Similarly, the <font face=
+                "Courier New, Courier, mono">hashCode()</font>
+				methods are also final (to preserve the
+				equals/hashCode contract).</font></p>
               </td>
             </tr>
 
@@ -967,6 +1015,11 @@ children.remove(0);       // first child
                 "2">Other methods on List provide options to remove
                 all children, add a child at a given location, and
                 so on.</font></p>
+                <p><font face="Arial, Helvetica, sans-serif" size=
+                "2">If you have a particular Element or other Content
+				that you want to remove from its parent, you can
+				detach the Content with the Content.detach() method.
+				</font></p>
               </td>
             </tr>
 
@@ -1010,7 +1063,7 @@ newParent.addContent(elt.detach());
                 have only one parent returned by <font face=
                 "Courier New, Courier, mono">getParent()</font>.</font></p>
 <pre>
-newParent.addContent((Element)elt.clone());
+newParent.addContent(elt.clone());
 </pre>
               </td>
             </tr>
@@ -1183,18 +1236,27 @@ y.addContent(z);
                 edition:</font></p>
 
                 <p><font face="Arial, Helvetica, sans-serif" size=
-                "2">To simplify the tasks of applications, an XML
+                "2"><blockquote>To simplify the tasks of applications, an XML
                 processor must normalize line breaks in parsed
                 entities to #xA either by translating the
                 two-character sequence #xD #xA and any #xD that is
                 not followed by #xA to #xA on input before parsing,
                 or by using some other method such that the
                 characters passed to the application are the same
-                as if it did this translation.</font></p>
+                as if it did this translation.</blockquote></font></p>
 
                 <p><font face="Arial, Helvetica, sans-serif" size=
                 "2">In other words, this is exactly what's supposed
                 to happen.</font></p>
+                <p><font face="Arial, Helvetica, sans-serif" size=
+                "2">Some XML input may escape the \r carriage return
+				as <font
+                face="Courier New, Courier, mono">&amp;#xD;</font> and
+				the XML parser will translate this in to a true \r
+				character in your JDOM Text. When this Text is output
+				again it will be re-escaped as <font
+                face="Courier New, Courier, mono">&amp;#xD;</font>.
+				</font></p>
               </td>
             </tr>
 
@@ -1452,7 +1514,47 @@ builder.setEntityResolver(new NoOpEntityResolver());
                 <p><a name="a0360"><font face=
                 "Arial, Helvetica, sans-serif"><b><font color=
                 "#003366" size="2">How do I validate against a
-                schema when using JDOM?</font></b></font></a></p>
+                schema when using JDOM 2.x?</font></b></font></a></p>
+
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">JDOM 2.x introduces a
+				simplified model for Document validation. The <font face=
+                "Courier New, Courier, mono">org.jdom2.input.sax.XMLReaders</font>
+				Enum contains members that set up your validation for you.
+				</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size=
+                "2">The complete code in JDOM 2.x looks like this:</font></p>
+
+                <p><font face=
+                "Arial, Helvetica, sans-serif"><code>SAXBuilder
+                builder =<br>
+                 &nbsp; new
+                SAXBuilder(XMLReaders.XSDVALIDATING);<br>
+                 Document doc = builder.build(xml);</code></font></p>
+
+				</td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <a name="schemas"></a> 
+
+                <p><a name="a0365"><font face=
+                "Arial, Helvetica, sans-serif"><b><font color=
+                "#003366" size="2">How do I validate against a
+                schema when using JDOM 1.x?</font></b></font></a></p>
+
+                <p><font size="2" face=
+                "Arial, Helvetica, sans-serif">JDOM 1.x doesn't have
+                it's own parser; it uses standard parsers like
+                Xerces to do the heavy lifting. If you want schema
+                validation make sure you choose a parser that
+                supports schemas. Xerces 2 is a good choice (get it
+                from <a href=
+                "http://xml.apache.org">http://xml.apache.org</a>).
+                You also need to use code JDOM Beta 8 or
+                later.</font></p>
 
                 <p><font size="2" face=
                 "Arial, Helvetica, sans-serif">JDOM doesn't have
@@ -1785,8 +1887,7 @@ http://jdom.markmail.org</font></a></li>
                 <p><a name="a0430"><font face=
                 "Arial, Helvetica, sans-serif"><b><font color=
                 "#003366" size="2">Should I ask general XML
-                questions to Jason and
-                Brett?</font></b></font></a></p>
+                questions to Jason, Brett, or Rolf?</font></b></font></a></p>
 
                 <p><font size="2" face=
                 "Arial, Helvetica, sans-serif">No, they're busy
@@ -1860,18 +1961,16 @@ http://jdom.markmail.org</font></a></li>
 
                 <ol>
                   <li><font size="2" face=
-                  "Arial, Helvetica, sans-serif">Check the <font
-                  face="Courier New, Courier, mono">TODO.txt</font>
-                  file in the root of the latest distribution to
-                  see if it's a known issue.</font></li>
+                  "Arial, Helvetica, sans-serif">Check both the
+				  <a href="https://github.com/hunterhacker/jdom/issues?state=open">open issues</a>
+				  and <a href="https://github.com/hunterhacker/jdom/issues?state=closed">closed issues</a>
+                  to see if it's a known issue.</font></li>
 
                   <li><font size="2" face=
                   "Arial, Helvetica, sans-serif">Check if the
-                  problem occurs when using the <a href=
-                  "/dist/nightly/">latest daily
-                  snapshot</a> of JDOM. Odds are good the bug has
-                  already been fixed since the last
-                  beta.</font></li>
+                  problem occurs when using the
+				  <a href="https://github.com/hunterhacker/jdom/zipball/master">
+				  latest development version (source .zip)</a> of JDOM.</font></li>
 
                   <li><font size="2" face=
                   "Arial, Helvetica, sans-serif">Search the <a
@@ -1881,9 +1980,10 @@ http://jdom.markmail.org</font></a></li>
 
                   <li><font size="2" face=
                   "Arial, Helvetica, sans-serif">If you don't find
-                  resolution with the latest snapshot, post to the
-                  <a href=
-                  "../involved/lists.html">jdom-interest</a>
+                  resolution with the latest snapshot, either 
+				  <a href="https://github.com/hunterhacker/jdom/issues/new">
+				  create an issue on GitHub</a> or post to the
+                  <a href="../involved/lists.html">jdom-interest</a>
                   mailing list; make sure you're a subscriber first
                   as only subscribers can post.</font></li>
 
@@ -1892,8 +1992,8 @@ http://jdom.markmail.org</font></a></li>
                   give as much information as possible -- the stack
                   trace, a reproducible and short code example, the
                   XML file causing problems. Make sure to state the
-                  version of JDOM used (which day's
-                  snapshot).</font></li>
+                  version of JDOM used (official version or GitHub
+				  commit).</font></li>
 
                   <li><font face="Arial, Helvetica, sans-serif"
                   size="2">If you have a patch to fix the bug,
