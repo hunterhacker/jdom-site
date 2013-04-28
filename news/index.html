@@ -74,6 +74,43 @@
       <table width="100%" border="0" cellspacing="5" cellpadding="5">
         <tr align="left" valign="top"> 
           <td height="61"> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366">04.28.2013: 
+              JDOM 2.0.5 Released!</font></b></font></p>
+            <font face="Arial, Helvetica, sans-serif" size="2"><p>
+                <p><b>JDOM 2.0.5 is here!</b></p>
+                <p>
+                JDOM 2.0.5 fixes some issues:
+                <p>
+				<ul>
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/116">Issue 116</a>
+				- JDOM 1.x uses an iterator to output XML child content, modify JDOM 2.x to do the same.
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/115">Issue 115</a>
+				- Correctly set the 'xmlns' prefix and URI for Namespace declarations in DOMOutputter.
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/114">Issue 114</a>
+				- Setting the Line Separator for JDOM would not work from System.properties().
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/113">Issue 113</a>
+				- Compile (and test) against Jaxen 1.1.6
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/112">Issue 112</a>
+				- Improves performance of SAXBuilder when there are large ( greater than 1KB ) text sections in the input XML
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/111">Issue 111</a>
+				- Improve documentation for SAXBuilder.build(String) so that it is more obvious that the String
+				must be a URI or filename, etc. and not actual XML in a String variable
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/106">Issue 106</a>
+				- Uses different methods on StAX Stream output to ensure that Namespace URI's are prefixed correctly
+				</ul>
+                <p>
+                <a href="../dist/binary/jdom-2.0.5.zip">Get JDOM 2.0.5 Here!</a> or from the maven-central
+                repository here:
+                <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom2|2.0.5|jar">
+                Group: org.jdom, Artifact: jdom2</a>
+                </p>
+				JDOM Downloads used to be available on <a href="https://github.com/hunterhacker/jdom/downloads">GitHub too</a>,
+				but <a href="https://github.com/blog/1302-goodbye-uploads">GitHub has disabled this feature</a>.
+                </p></font>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td height="61"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366">11.08.2012: 
               JDOM 2.0.4 Released!</font></b></font></p>
             <font face="Arial, Helvetica, sans-serif" size="2"><p>
@@ -94,7 +131,7 @@
 				- Use the functionally equivalent 'older' DOM methods instead of DOM 3 methods with may not be implemented completely in all DOM libraries.
 				</ul>
                 <p>
-                <a href="https://github.com/downloads/hunterhacker/jdom/jdom-2.0.4.zip">Get JDOM 2.0.4 Here!</a> or from the maven-central
+                <a href="../dist/binary/archive/jdom-2.0.4.zip">Get JDOM 2.0.4 Here!</a> or from the maven-central
                 repository here:
                 <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom2|2.0.4|jar">
                 Group: org.jdom, Artifact: jdom2</a>
@@ -128,7 +165,7 @@
 				in to the jdom2 artifact, instead of the jdom artifact.
 				</ul>
                 <p>
-                <a href="https://github.com/downloads/hunterhacker/jdom/jdom-2.0.3.zip">Get JDOM 2.0.3 Here!</a> or from the maven-central
+                <a href="../dist/binary/archive/jdom-2.0.3.zip">Get JDOM 2.0.3 Here!</a> or from the maven-central
                 repository here:
                 <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom2|2.0.3|jar">
                 Group: org.jdom, Artifact: jdom2</a>
@@ -148,7 +185,7 @@
 				and also updates some JavaDoc, and makes an exception message more meaningful.
                 </p>
                 <p>
-                <a href="https://github.com/downloads/hunterhacker/jdom/jdom-2.0.2.zip">Get JDOM 2.0.2 Here!</a> or from the maven-central
+                <a href="../dist/binary/archive/jdom-2.0.2.zip">Get JDOM 2.0.2 Here!</a> or from the maven-central
                 repository here:
                 <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom|2.0.2|jar">
                 Group: org.jdom, Artifact: jdom</a>
@@ -168,7 +205,7 @@
 				JDOM 2.0.1 also fixes a bug in the 'Compact' output of XML.
                 </p>
                 <p>
-                <a href="https://github.com/downloads/hunterhacker/jdom/jdom-2.0.1.zip">Get JDOM 2.0.1 Here!</a> or from the maven-central
+                <a href="../dist/binary/archive/jdom-2.0.1.zip">Get JDOM 2.0.1 Here!</a> or from the maven-central
                 repository here:
                 <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom|2.0.1|jar">
                 Group: org.jdom, Articact: jdom</a>
@@ -188,7 +225,7 @@
                 only fully supported on Java 6 and later. 
                 </p>
                 <p>
-                <a href="../dist/binary">Get JDOM 2.0.0 Here!</a> or from the maven-central
+                <a href="../dist/binary/archive/jdom-2.0.0.zip">Get JDOM 2.0.0 Here!</a> or from the maven-central
                 repository here:
                 <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom|2.0.0|jar">
                 Group: org.jdom, Articact: jdom</a>
