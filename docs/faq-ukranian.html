@@ -1,0 +1,930 @@
+<html>
+<head>
+    <title>JDOM: FAQ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+  <body bgcolor="#FFFFFF" vlink="#666666">
+   <table width="650" border="0" cellspacing="0" cellpadding="0">
+<h1>Запитання й відповіді для JDOM</h1>
+            <tr align="left" valign="top">
+              <td>
+                <ul>
+                  <li><a href="#a0000">Що JDOM?</a></li>
+
+                  <li><a href="#a0010">Що JDOM ні?</a></li>
+
+                  <li><a href="#a0020">Є JDOM абревіатурою?</a></li>
+
+                  <li><a href="#a0030">Що таке ліцензія JDOM?</a></li>
+
+                  <li><a href="#a0040">Де я можу отримати JDOM?</a></li>
+
+                  <li><a href="#a0045">Які Maven артефакт я повинен використовувати?</a></li>
+
+                  <li><a href="#a0050">Яка JDOM Філософія?</a></li>
+
+                  <li><a href="#a0060">Чому JDOM API визначається в термінах конкретних класів, а не інтерфейси?</a></li>
+
+                  <li><a href="#a0070">Як JDOM працювати з DOM і SAX?</a></li>
+
+                  <li><a href="#a0080">Був JDOM призначений для дженериків?</a></li>
+
+                  <li><a href="#a0090">Я намагався використовувати JDOM і отримую повідомлення про помилку, як це: java.lang.NoSuchMethodError або java.lang.NoClassDefFoundError: орг / XML / саксофон / SAXNotRecognizedException</a></li>
+
+                  <li><a href="#a0100"><i>Що ви маєте на увазі "Стандартний каталог розширення"?</i></a></li>
+
+                  <li><a href="#a0110">Як уникнути проблеми DOM Level 1 в Visual Age для Java?</a></li>
+
+                  <li><a href="#a0120">Як уникнути проблеми DOM Level 1 в WebSphere?</a></li>
+
+                  <li><a href="#a0130">Яка версія JDOM працює з якої JDK?
+                  </a></li>
+
+                  <li><a href="#a0140">Чи є якісь показники продуктивності?</a></li>
+
+                  <li><a href="#a0150">Як JDOM інтеграції з XSLT?</a></li>
+
+                  <li><a href="#a0160">Є підтримка XPath в JDOM?</a></li>
+
+                  <li><a href="#a0170">Які особливості XML неповністю оброблені JDOM?</a></li>
+
+                  <li><a href="#a0180">Є JDOM поточно?</a></li>
+
+                  <li><a href="#a0190">Чому <font face="Courier New, Courier, mono">дорівнює ()</font> тільки зробити <font face="Courier New, Courier, mono">==</font> 
+                  чек?</a></li>
+
+                  <li><a href="#a0200">Чому <font face="Courier New, Courier, mono">дорівнює ()</font> 
+                  оголошена остаточна?</a></li>
+
+                  <li><a href="#a0210">Як побудувати документ з рядка?</a></li>
+
+                  <li><a href="#a0220">Як видалити елемент або інший контент?</a></li>
+
+                  <li><a href="#a0230">Як перемістити елемент з одного місця в інше?</a></li>
+
+                  <li><a href="#a0240">Як скопіювати елемент з одного місця в інше?</a></li>
+
+                  <li><a href="#a0250">Може імені елемента або атрибута містить двокрапку?</a></li>
+
+                  <li><a href="#a0260">Чому мені потрібно пройти в
+                   <font face="Courier New, Courier, mono">простір імен</font> до
+                   <font faces="Courier New, Courier, mono">GetChild ()</font> , коли дитина елемент Я шукаю не має декларацію простору імен?</a></li>
+
+                  <li><a href="#a0270">Якщо я піду з простору імен з другого виклику GetChild (), вона повертає нуль. Чому?</a></li>
+
+                  <li><a href="#a0280">Чому все нові лінії з'являються як \ п, навіть на Windows?</a></li>
+
+                  <li><a href="#a0290">Чому SetText ("&amp; # 160;") не то, що я хочу?</a></li>
+
+                  <li><a href="#a0300">При використанні IDE відладчик Чому я бачу дивний ArrayIndexOutOfBoundsException?</a></li>
+
+                  <li><a href="#a0310">Як мені додати ІП або коментар перед кореневим елементом?</a></li>
+
+                  <li><a href="#a0320">Як мені уникнути попадання OutOfMemoryError?</a></li>
+
+                  <li><a href="#a0330">Чому мій кодування файлу на виході не відповідає кодуванні на вході?</a></li>
+
+                  <li><a href="#a0340">Чому проходження документа через сокет іноді зависає парсер?</a></li>
+
+                  <li><a href="#a0350">Як зробити так, щоб DTD від навантаження?<font>Навіть коли я вимикаю перевірку парсер намагається завантажити файл DTD.</a></li>
+
+                  <li><a href="#a0360">Як перевірити на відповідність схемі при використанні JDOM 2.x?</a></li>
+
+                  <li><a href="#a0365">Як перевірити на відповідність схемі при використанні JDOM 1.x?</a></li>
+
+                  <li><a href="#a0370">Як я можу виконувати перевірку в пам'яті проти DTD або схеми?</a></li>
+
+                  <li><a href="#a0380">JDOM забезпечує документ в пам'яті завжди добре сформований.<font>Може JDOM також забезпечити документ в пам'яті завжди справедливо?</a></li>
+
+                  <li><a href="#a0390">Чому я отримую IndexOutOfBoundsException або ConcurrentModificationException на цикл?</a></li>
+
+                  <li><a href="#a0400">Є архів для списків розсилки JDOM?</a></li>
+
+                  <li><a href="#a0410">Як мені відмовитись від підписки на розсилку?</a></li>
+
+                  <li><a href="#a0420">Як мені створити в список розсилки з декількох адрес?</a></li>
+
+                  <li><a href="#a0430">Чи повинен я здавати загальні XML питання Джейсон, Бретт, або Рольф?</a></li>
+
+                  <li><a href="#a0450">У книзі <i>Java і XML</i> 
+                  розповідає про JDOM 1,0;<font>Тому плутанина?</a></li>
+
+                  <li><a href="#a0460">У мене є питання, що тут немає відповіді.<font>Що я роблю?</a></li>
+
+                  <li><a href="#a0470">Як мені повідомити про помилку?</a></li>
+
+                  <li><a href="#a0480">Де я можу дізнатися більше?</a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><br><p><a name="a0000"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Що JDOM?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM тобто, просто кажучи, уявлення Java з XML документа. JDOM забезпечує спосіб викладу документа, легкого і ефективного читання, маніпуляції і письмовій формі. Вона має простий API, це легкий і швидкий, і оптимізований для Java програміста. Це альтернатива DOM і SAX, хоча це добре інтегрується з обох DOM і SAX.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><br><p><a name="a0010"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Що JDOM ні?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM є <i>НЕ</i> обгортка для DOM від W3C, або інша версія DOM. JDOM є Java-основі "об'єктна модель документа» для XML-файлів. JDOM служить тієї ж мети, що і DOM, але простіше у використанні.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">JDOM НЕ XML-парсер, як Xerces або Crimson. Це об'єктна модель документа, яка використовує XML парсери побудувати документи. SAXBuilder клас JDOM для прикладу використовує SAX події, що генеруються XML парсер, щоб побудувати JDOM дерево. За замовчуванням XML-парсер використовується JDOM є JAXP обраний аналізатор, але JDOM може використовувати практично будь аналізатор.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0020"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Є JDOM абревіатурою?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Нє-а. Так само, як JDBC не є офіційно абревіатура, ні один не JDOM. Це гарантує нам відповідати правилам Сонця товарних знаків, як описано в <a href="http://www.sun.com/policies/trademarks">http://www.sun.com/policies/trademarks</a> .</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0030"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Що таке ліцензія JDOM?</font></b></font></a></p>
+
+                
+            <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM доступний під Apache стилі ліцензії з відкритим вихідним кодом, з обмовкою підтвердження видалені. Ця ліцензія є одним з найменш обмежувальної ліцензії доступні, що дозволяє розробникам використовувати JDOM в створенні нових продуктів, не вимагаючи їх звільнити свої власні продукти з відкритим вихідним кодом. Це модель ліцензія використовується Apache Project, який створив сервер Apache. Ліцензія надається на вершині кожного вихідного файлу і в license.txt докорінно дистрибутива.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0040"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Де я можу отримати JDOM?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM доступний в довічним і джерела формі від <a href="http://www.jdom.org">http://www.jdom.org</a> .</font></p>
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM також доступна в Maven центрального в групі "org.jdom» з артефакту ID <i>JDOM</i> для JDOM 1.x (і деяких більш ранніх версіях 2.x): <a href="http://search.maven.org/#search|gav|1|g%3A%22org.jdom%22%20AND%20a%3A%22jdom%22">JDOM 1.x Артефакти на Maven</a> , або з артефактом ID <i>jdom2</i> для JDOM 2.x: <a href="http://search.maven.org/#search|gav|1|g%3A%22org.jdom%22%20AND%20a%3A%22jdom2%22">JDOM 2.x Артефакти на Maven</a></font></p>
+				
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Повний репозиторій вихідного коду підтримується <a href="https://github.com/hunterhacker/jdom">на GitHub</a> .</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0045"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Які Maven артефакт я повинен використовувати?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Всі версії JDOM доступні в "JDOM" або "jdom2" артефакт в org.jdom групи <a href="http://search.maven.org/#search|gav|1|g%3A%22org.jdom%22">
+				по Maven</a> . </font><font class="">Артефакти Maven панує безлад з ранніх 2.x версій JDOM, що входять в "JDOM" артефактів, і пізніших версій 2.x в артефакту "jdom2. Maven не дозволяє фіксацію помилок, так Maven користувачі Віль просто повинні жити з нею, як вона є.</font></p>
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Якщо ваш проект, що вимагає як JDOM 1.x і 2.x, то ви також можете використовувати <a href="http://search.maven.org/#search|gav|1|g%3A%22org.jdom%22%20AND%20a%3A%22jdom-legacy%22">'JDOM-спадщина "артефакт</a> тягнути в версії 1.1.3 (або більш пізньої версії 1.x).</font></p>
+				
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0050"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Яка JDOM Філософія?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM був і продовжуватиме розвиватися з цією філософією:</font></p>
+
+                <ul>
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинен бути простим для Java програмістів.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинні підтримувати простий і ефективний модифікації документа.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинні приховання складнощів XML скрізь, де це можливо, при цьому залишаючись вірним специфікації XML.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинні інтегруватися з DOM і SAX.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинен бути легким і швидким.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">JDOM повинні вирішити 80% (або більше) з Java проблем / XML з 20% (або менше) від зусиль</font></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0060"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому JDOM API визначається в термінах конкретних класів, а не інтерфейси?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Це питання обговорювалося кілька разів на розсилку JDOM, з кількома людьми з обох сторін. Загалом, багато людей вважають, що API на основі класів краще, коли підкласів не потрібно, тоді як API-інтерфейс на основі краще, коли необхідна підкласів. Проте, або система може бути використана в будь-якому випадку.</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Джейсон Хантер підсумовує аргументи проти з API інтерфейс на базі для JDOM:</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif"><i>З інтерфейси все стає на заводі, елементи повинні бути «імпортний» в нові документи, замість щойно додали, функцій, таких як довгострокове серіалізациі не може бути гарантована, і цей список можна продовжити.</i></font></p>
+                 
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif"><i>Ми почали з інтерфейсами насправді. Під час нашого попередньою версією огляду на деяких однолітків, які ми отримали зворотний зв'язок, ми повинні спробувати конкретні класи. Ми зробили, і дизайн був набагато краще для нього.</i></font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Подумайте про те,
+                 <tt>java.io.File</tt> як аналогію. Там причина ми говоримо:</font></p>
+                 
+<pre>Файл батько = новий файл (FilePath);
+Файл дитина = новий файл (батько, "aaa.txt");
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">а не</font></p>
+                 
+<pre>Файлова система FS = FileSystem.getDefaultFileSystem ();
+Батько File = fs.getFile (FilePath);
+Дитина File = fs.getFile (батько, "aaa.txt");
+</pre>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Колишній просто легше і приємніше мати справу з.</font></p>
+                 
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ще один момент, щоб мати на увазі, що все, що можна зробити з інтерфейсами можна зробити з підкласів - тільки штраф, можливо, невикористовувані змінні в базовому класі.</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Для довідки, остання дискусія список розсилки на цю тему розпочався 30 листопада 2000 із "Інтерфейси", і продовжив з "JDOM інтерфейс на основі" і "Анонс: JDOMPlus". Це допомогло б переглянути цю дискусію до пред'явлення темою на розсилку.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0070"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як JDOM працювати з DOM і SAX?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Документи JDOM можуть бути побудовані з XML-файлів, DOM дерев, SAX подій, або будь-якого іншого джерела. Документи JDOM можуть бути перетворені в XML-файлах, DOM, SAX дерев подій, або в будь-яке інше місце. Ця здатність виявляється корисним, наприклад, при інтеграції з програмою, яка розраховує SAX події. JDOM може розібрати XML файл, нехай програмісту легко і ефективно маніпулювати документом, то вогонь SAX події на другий програми безпосередньо - НЕ перетворення в послідовну форму форматі не потрібно.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0080"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Був JDOM призначений для дженериків?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM був розроблений до Дженерики, але JDOM 2.x взяла перевірену конструкцію JDOM 1.x і розширив його використовувати Generics де це можливо. Зокрема, всі операції Колекції основі вимагають відповідним чином введені входи, і повернутися відповідним типізованих результатів. Крім того, JDOM 2.x користується іншими Java 5 функцій, таких як масиву аргументів, і со-варіант повертані типи.</font></p>
+				
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Дженерики: Element.getAttributes () повертає List &lt;Атрибут&gt;, Element.getChildren () повертає List &lt;Елемент&gt;, і т.д.</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Спільне варіант Типи повертаних: Element.clone () повертає елемент, Text.detach () повертає текст, і т.д.</font></p>
+			  </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0090"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Я намагався використовувати JDOM і отримати таку помилку:</font></b></font></a></p>
+<pre><font color="#003366">java.lang.NoSuchMethodError </font>
+    <font color="#003366">або </font>
+<font color="#003366">java.lang.NoClassDefFoundError: орг / XML / саксофон / SAXNotRecognizedException</font>
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><i>Що не так?</i></font></b></font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ви повинні переконатися, що <font face="Courier New, Courier, mono">xerces.jar</font> файл поставляється з JDOM завантаження в вашому шляху до класів <i>перед</i> будь-якими іншими класами XML, такі як ті, що приходять з JAXP або Crimson. Ці та інші XML-бібліотеки, а також старі версії Apache Xerces, підтримка DOM Level 1 і SAX 1.0, не потрібно DOM Level 2 і SAX 2.0. Результатом є винятком кидка. Перевірте свій шлях до класів, і спробуйте знову. Якщо шлях до класів виглядає нормально, проблематично JAR також може ховатися в стандартному каталозі розширення системи (див нижче).</font></p>
+
+                <br><p><a name="a0100"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2"><i>Що ви маєте на увазі "Стандартний каталог розширення"?</i></font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Стандартний каталог розширення це каталог, який містить JAR-файли, які автоматично шукали середовищем виконання Java і компілятор. Якщо ви встановили JDK (не тільки JRE) ви можете також мати дві окремі доб каталоги, один з яких використовується для компіляції (як правило, десь, як <font face="Courier New, Courier, mono">C: \ jdk1.3 \ JRE \ Lib \ доб</font> ), а другий з яких використовується для запуску коду (зазвичай десь, як <font face="Courier New, Courier, mono">C: \ Program Files \ JavaSoft \ JRE \ 1.3 \ Lib \ доб</font> ). Неправильний файл JAR в будь-якому каталозі можна отримати на вашому шляху (хоча в різний час). Крім того, право файл JAR повинен бути в обох каталогах.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0110"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як уникнути проблеми DOM Level 1 в Visual Age для Java?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Коли функція WTE додається в робочу область, проект «IBM XML Parser для Java» додається також. Цей проект містить 'org.w3c. *' Старого DOM Level 1 інтерфейси. JDOM спирається на DOM Level 2, і, отже, conficts з цим проектом. Рішення зробити наступне:</font></p>
+
+                <ol>
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Власник Змінити робочий простір для адміністратора</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Створити відкриту редакцію проекту «IBM XML Parser для Java"</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Видалити всі пакети, які містять
+                   <font face="Courier New, Courier, mono">org.w3c. *</font> 
+                  інтерфейси</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Версія проект.</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Створення нового проекту для DOM Level 2 парсер таких як Xerces</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Імпорт всіх класів Xerces включаючи
+                   <font face="Courier New, Courier, mono">org.w3c. *</font> 
+                  інтерфейси (можна використовувати абсолютно інший проект для тих інтерфейсів, якщо ви хочете працювати з іншими аналізаторами)</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Версія Xerces проект</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Створення проекту JDOM і імпортувати класи JDOM в ньому. Версія проект</font></li>
+                </ol>
+
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">(Внесено Гай Nirpaz)</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0120"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як уникнути проблеми DOM Level 1 в WebSphere?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">WebSphere має ту ж проблему з DOM Level 1 інтерфейсів, як вай вище. Рішення зробити <i>одне</i> наступне:</font></p>
+
+                <ul>
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Покладіть шлях до <font face="Courier New, Courier, mono">xerces.jar</font> 
+                  (або інші DOM Level 2 інтерфейсу) в змінній ' <font face="Courier New, Courier, mono">com.ibm.ejs.sm.adminserver.classpath</font> 'в файлової <font face="Courier New, Courier, mono">admin.config</font> . Це знаходиться в <font face="Courier New, Courier, mono">$ WAS_ROOT $ / бен</font> 
+                  перед усіма іншими змінними.</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">або, якщо ви бігти було <font face="Courier New, Courier, mono">$ WAS_ROOT / бен / налагодження / AdminServer. {битою | ш}</font> 
+                  додати рядок " <font face="Courier New, Courier, mono">встановити WAS_CP = xerces.jar</font> "(або інший DOM Level 2 інтерфейси) перед іншими набір <font face="Courier New, Courier, mono">WAS_CP</font> 
+                  команд.</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">або додайте JDOM на сервер CLASSPATH додатки, використовуючи або <font face="Courier New, Courier, mono">admin.cfg</font> 
+                  файл або консоль адміністрування.</font></li>
+                </ul>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">(Внесено Гай Nirpaz)</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0130"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Яка версія JDOM працює з якої JDK?
+				</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Версії 1.x JDOM підтримує JDK 1.2 і пізніших версій.</font></p>
+				
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Версії JDOM 2.x підтримує JDK 1.5 і пізніших версій.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0140"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чи є якісь показники продуктивності?</font></b></font></a></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Процес розробки 2.x JDOM включені контрольні показники для відстеження змін продуктивності. Є показники продуктивності, які порівнюють різні
+				 <a href="http://hunterhacker.github.com/jdom/jdom2/performance.html">
+				версії JDOM 2.x</a> , а також порівняння продуктивності JDOM на різних
+				 <a href="http://hunterhacker.github.com/jdom/jdom2/performanceJDK.html">
+				версіях JDK</a> .</font></p>
+				
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Денис Сосновський в минулому побіг тестів продуктивності. Загалом, більшість моделей об'єктів XML знаходяться в подібній околиці.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0150"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як JDOM інтеграції з XSLT?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Є багато способів зробити XSL перетворює з JDOM. Найпростіший спосіб полягає у використанні стандартного JAXP
+                 <font face="Courier New, Courier, mono">Transformer</font> 
+                інтерфейс і <font face="Courier New, Courier, mono">JDOMSource</font> / <font face="Courier New, Courier, mono">JDOMResult</font> 
+                класи, знайдені в <font face="Courier New, Courier, mono">org.jdom2.transform</font> 
+                пакета. Подивіться на зразок імені <font face="Courier New, Courier, mono"><a href="https://github.com/hunterhacker/jdom/raw/master/core/samples/XSLTransform.java">XSLTransform</a></font> 
+                для прикладу.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0160"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Є підтримка XPath в JDOM?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Так! Це повністю інтегрована в <a href="http://www.jdom.org/docs/apidocs/org/jdom2/xpath/package-summary.html">org.jdom2.xpath</a> як Бети 9, на основі
+                 <a href="http://jaxen.org/">Jaxen</a> .</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0170"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Які особливості XML не обробляються JDOM?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ні що ми знаємо.
+                </font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0180"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Є JDOM поточно?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ядро API навмисно <b>НЕ</b> поточно. Іншими словами, немає синхронізовані блоки в org.jdom. Це рішення має сенс, тому що ми очікуємо, що основні способи використання JDOM бути:</font></p>
+
+                <ul>
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Одномісний потік зчитує потік XML в JDOM і дивиться на це тільки для читання</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Одномісний потік зчитує потік XML в JDOM і змінює його</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Одномісний потік зчитує потік XML в JDOM і робить його доступним для системи часу виконання для доступу на читання</font></li>
+                </ul>
+				<p><font size="2" face="Arial, Helvetica, sans-serif">Використання випадок, коли "один потік читає потік XML в JDOM і виставляє його на кілька потоків, щоб змінити його зміст» досить рідко. В цьому випадку, все ще JDOM можуть бути зроблені потоково але програміст повинен просто виконувати свою власну синхронізацію, може бути, як синхронізація за прикладом документа.</font></p>
+				
+				<p><font size="2" face="Arial, Helvetica, sans-serif">З іншого боку, є певні функції, які вимагають «оперативні» частини JDOM бути безпечним Тема:</font></p>
+                <ul>
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">
+				  org.jdom2.Namespace.getNamespace () безпечна</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Всі класи завод типу безпечні (XPathFactory і т.д.)</font></li>
+
+                </ul>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0190"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому <font face="Courier New, Courier, mono">дорівнює ()</font> тільки зробити <font face="Courier New, Courier, mono">==</font> 
+                чек?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">В JDOM два Вміст об'єкти тільки рівними, якщо вони точно такий же об'єкт. Це дозволяє на виклик, як <font face="Courier New, Courier, mono">list.remove (елем)</font> 
+                видалити тільки точне <font face="Courier New, Courier, mono">Елемент</font> передається в, а не який-небудь елемент, що еквівалентно. Це дуже важлива відмінність. Робити повний <font face="Courier New, Courier, mono">одно ()</font> 
+                на <font face="Courier New, Courier, mono">елемент</font> потребують рекурсії вниз по дереву, і в цілому ми вважаємо, що навряд чи ви хочете знати, якщо цей елемент і всі його діти еквівалентні інший. Якщо ви дійсно хочете знати, що ви можете написати деякі порівняння код самостійно, що перевіряє тільки стільки, скільки ви хочете перевірити (можливо ім'я / тільки імен), а не робити повний рекурсивно.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0200"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому <font face="Courier New, Courier, mono">дорівнює ()</font> 
+                оголошена остаточна?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">В <font face="Courier New, Courier, mono">дорівнюють ()</font> 
+                методи є остаточними для JDOM контенту класів так, що підклас не може порушити <font face="Courier New, Courier, mono">==</font> поведінку, що вимагається для дзвінків як <font face="Courier New, Courier, mono">list.remove (елем)</font> 
+                працювати, як задумано. Точно так же <font face="Courier New, Courier, mono">хеш-код ()</font> 
+				методи також фінал (зберегти дорівнює / контракт хеш-код).</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0210"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як побудувати документ з рядка?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ви можете використовувати стандартні бібліотечні виклики Java IO.</font> Оберніть <font face="Courier New, Courier, mono" size="2">рядок</font> 
+                з <font size="2" face="Courier New, Courier, mono">StringReader</font> 
+                і передати читачеві <font face="Courier New, Courier, mono" size="2">SAXBuilder</font> :</p>
+<pre>Документ Doc = builder.build (новий StringReader (XML));
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0220"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як видалити елемент або інший контент?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Використовуйте методи на <font face="Courier New, Courier, mono">список</font> возвращаемого <font face="Courier New, Courier, mono">GetChildren ()</font> 
+                або <font face="Courier New, Courier, mono">getContent ()</font> . JDOM не потрібні спеціальні методи, тому що методи вже існують в <font face="Courier New, Courier, mono">список</font> . Наприклад, щоб видалити елемент зі списку дітей:</font></p>
+<pre>Список дітей = parent.getChildren ();
+children.remove (елемент); // Враховуючи дитина
+children.remove (0); // Перша дитина
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Інші методи по Список надають можливості для усунення всіх дітей, додати дитини в певному місці, і так далі.</font></p>
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Якщо у вас є конкретний елемент або іншого контенту, який ви хочете видалити зі свого батька, ви можете від'єднати контенту з методом Content.detach ().
+				</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0230"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як перемістити елемент з одного місця в інше?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Там немає необхідності для вузла "імпорту" як є з DOM. Просто видалити елемент з поточного місця, а потім додати елемент на нове місце. Вмісту елемента (в тому числі його дочірніх елементів), природно, "тега" з собою в поїздку. Ви повинні видалити елемент, перш ніж додати його новому місці, бо елементи можуть мати тільки одного батька, повернене <font face="Courier New, Courier, mono">GetParent ()</font> .</font></p>
+<pre>newParent.addContent (elt.detach ());
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0240"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як скопіювати елемент з одного місця в інше?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Там немає необхідності для вузла "імпорту" як є з DOM. Просто клонувати елемент копіюється і додати його клон в новому місці. Ви повинні клонувати елемент, перш ніж додати його новому місці, бо елементи можуть мати тільки одного батька, повернене <font face="Courier New, Courier, mono">GetParent ()</font> .</font></p>
+<pre>newParent.addContent (elt.clone ());
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0250"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Може імені елемента або атрибута містить двокрапку?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Специфікація XML 1.0, спеціально залишає за собою символ двокрапки для використання з просторами імен XML. Ніяке інше використання не відповідає XML 1.0. Тому JDOM не дозволяють створювати імена елементів і атрибутів, які містять двокрапки винятком випадків, коли за допомогою простору імен. Крім того, через спосіб імен реалізовані в JDOM, ви не можете просто створити елемент або атрибут з повним ім'ям, як <font face="Courier New, Courier, mono">SVG: назва</font> . Тобто ви не можете зробити це:</font></p>
+<pre>Елемент е = новий елемент ("SVG: Назва");
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Замість цього ви повинні розділити ці дві частини в
+                 <font face="Courier New, Courier, mono">просторі імен</font> і локального імені. Це правильний JDOM спосіб створити елемент в просторі імен:</font></p>
+<pre>Елемент е = 
+  Новий елемент ("назва", "SVG", "http://www.w3.org/2000/svg");
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Перший аргумент це місцева назва. Другий аргумент є префіксом. Третій аргумент є простором імен URI.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Якщо ви намагаєтеся створити <font face="Courier New, Courier, mono">XML: Lang</font> і
+                 <font face="Courier New, Courier, mono">XML: космічні</font> 
+                атрибути використовувати:</font></p>
+<pre>Елемент е = 
+  Новий елемент ("мова" Namespace.XML_NAMESPACE);
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0260"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому мені потрібно пройти в <font face="Courier New, Courier, mono">простір імен</font> 
+                до <font face="Courier New, Courier, mono">GetChild ()</font> , коли дитина елемент Я шукаю не має декларацію простору імен?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Зокрема, для цього XML фрагмента:<br>
+                </font></p>
+<pre>&lt;Х&gt;
+  &lt;У XMLNS = "http://foo.com"&gt;
+    &lt;Г /&gt;
+  &lt;/ У&gt;
+&lt;/ Х&gt;
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Ви повинні використовувати такий код:</font></p>
+<pre>Простір імен нс = Namespace.getNamespace ("http://foo.com");
+Елемент у = x.getChild ("Y", нс);
+Елемент г = y.getChild ("Z", нс);
+</pre>
+
+                <p>&nbsp;</p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0270"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Якщо я піду з простору імен з другого виклику GetChild (), вона повертає нуль. Чому?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM працює на логічному в пам'яті XML дерева, а не текстове представлення на диску. Тоді як елемент <font face="Courier New, Courier, mono">г</font> не має простору імен <i>заяву</i> , у нього є
+                 <i>простір імен</i> - той, успадкований від свого батька, яка заявляє, простір імен за замовчуванням (пов'язаний з URI http://foo.com).</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Відповідно до специфікації просторів імен, наступний фрагмент XML-ідентична за значенням до попереднього:</font></p>
+<pre>&lt;Х&gt;
+  &lt;У XMLNS = "http://foo.com"&gt;
+    &lt;Z XMLNS = "http://foo.com" /&gt;
+  &lt;/ У&gt;
+&lt;/ Х&gt;
+</pre>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Таким чином, що API JDOM обробляє імен означає, що ви можете написати код, який працює для обох прикладах. В іншому випадку, вам потрібно буде мати код, який перевіряється окремо для кожного випадку.</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Точно так же, якщо ви будували (замість читання) в XML і в першому прикладі вище, ви повинні були б написати такий код:</font></p>
+<pre>Простір імен нс = Namespace.getNamespace ("http://foo.com");
+Елемент у = новий елемент ("Y", нс);
+x.addContent (у);
+Елемент Z = новий елемент ("Z", нс);
+y.addContent (г);
+</pre>
+                <font face="Arial, Helvetica, sans-serif" size="2">Якщо ви не врахували <font face="Courier New, Courier, mono">простору імен</font> 
+                примірника з конструктора для елемента <font face="Courier New, Courier, mono">г</font> , вам доведеться наступне дерево в пам'яті:</font> 
+<pre>&lt;Х&gt;
+  &lt;У XMLNS = "http://foo.com"&gt;
+    &lt;Z XMLNS = "" /&gt;
+  &lt;/ У&gt;
+&lt;/ Г&gt;
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0280"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому все нові лінії з'являються як \ п, навіть на Windows?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Відповідно до розділу 2.11 Рекомендації XML, 2-е видання:</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2"></font></p><blockquote><font face="Arial, Helvetica, sans-serif" size="2">Для спрощення завдання додатків, процесор XML повинен нормалізувати розриви рядків в проаналізованої в #xA або шляхом перекладу послідовність з двох символів #xD #xA і будь #xD що не випливають #xA до #xA на вході до розбору , або за допомогою іншого методу, так що символи, передані в додаток такі ж, як якщо б це було цей переклад.</font></blockquote><p></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Іншими словами, це саме те, що має статися.</font></p>
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Деякі вхід XML може уникнути повернення \ г каретки як <font face="Courier New, Courier, mono">і # XD;</font> і XML-парсер буде перевести це в до істинного \ г персонажа у вашій JDOM Текст. При цьому Текст виводиться знову буде повторно біг як <font face="Courier New, Courier, mono">і # XD;</font> .
+				</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0290"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому SetText ("&amp; # 160;") не то, що я хочу?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">При передачі рядка в метод як <font face="Courier New, Courier, mono">SetText ()</font> JDOM припускає, що це якраз те, рядок, а не фрагмент XML. Наприклад, при виклику:</font></p>
+<pre>element.setText ("&amp; # 160;")
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">JDOM припускає, що ви хочете встановити вміст у рядок, що містить шість символів <font face="Courier New, Courier, mono">&amp; # 1 Червня 0 </font>
+                <font face="Courier New, Courier, mono">;</font> . Це не розібрати його, щоб спробувати зрозуміти його як XML-перше. Таким чином, коли ви виводите текст, використовуючи
+                 <font face="Courier New, Courier, mono">XMLOutputter</font> вона, природно, уникнути особливий характер і вихід амперсанд <font face="Courier New, Courier, mono">&amp; Amp; # 160;</font> . Рішення пройти звичайні символи Unicode з методом SetText () або, якщо </font> <font face="Arial, Helvetica, sans-serif" size="2">у вас є текстові дані, які ви хочете бути витлумачено як XML, передати його через XML парсер, перш ніж він йде в JDOM. Це те, що роблять класи SAXBuilder і DOMBuilder.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0300"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">При використанні IDE відладчик Чому я бачу дивний ArrayIndexOutOfBoundsException?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Деякі аналізатори (Xerces включені) використовувати це виняток, як частина їх стандартної операційної процедурою, внутрішньо кидати і ловити виняток. Немає код за межами бібліотеки немає у вигляді побачити його. Проте, IDE отладчики часто налаштовані на доповідь в будь-який час дане виключення, і, таким чином, вони показують виняток. Це може бути проігноровано.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0310"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як мені додати ІП або коментар перед кореневим елементом?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ви повинні отримати доступ до вмісту документа як <font face="Courier New, Courier, mono">список</font> . Або отримати список і додайте контент до його голови, або задати список вмісту явно.</font></p>
+<pre>doc.getContent () додати (0, пі) .;
+</pre>
+<pre><font face="Arial, Helvetica, sans-serif">або</font>
+</pre>
+<pre>doc.setContent (listOfContent);
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0320"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як мені уникнути попадання OutOfMemoryError?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Більшість віртуальних машинах є опціон на збільшення своєї максимальний розмір купи, яка Максимальний обсяг пам'яті JVM може використовувати для своїх об'єктів. Ви можете налаштувати свій початковий розмір купи до 32 мегабайт і максимальний розмір купи в 64 мегабайт за допомогою наступної команди:</font></p>
+<pre><font face="Courier New, Courier, mono">Java -Xms32m -Xmx64m SomeClass</font>
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Якщо вам не потрібно весь документ в пам'ять, подивіться на org.jdom.contrib.input.scanner пакеті JDOM-вно модуля, який дозволяє побудувати частина документа, відповідного виразу XPath.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0330"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому мій кодування файлу на виході не відповідає кодуванні на вході?</font></b></font></a></p>
+
+                
+            <p><font size="2" face="Arial, Helvetica, sans-serif">Кодування символів за замовчуванням використовується <font face="Courier New, Courier, mono">XMLOutputter</font> є UTF-8, кодування змінної довжини, які можуть представляти всі символи Unicode. Це може бути змінено за допомогою виклику <font face="Courier New, Courier, mono">format.setEncoding ()</font>  
+              на <font face="Courier New, Courier, mono">формат</font> об'єкта, переданого в <font face="Courier New, Courier, mono">XMLOutputter</font> . Було б добре, якщо <font face="Courier New, Courier, mono">XMLOutputter</font> може оголосити дефолт у вихідне кодування для файла, але, на жаль, аналізатори не вказують вихідної кодування. Ви повинні встановити його програмно.</font></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Це питання найчастіше вражає людей з документами в загальній ISO-8859-1 (Latin-1) кодування, які використовують символи як <font face="Courier New, Courier, mono">ñ</font> але не знайомі з того, щоб думати про кодування. Кінчик пам'ятати, що з цими документами необхідно встановити вихідний кодування ISO-8859-1, в іншому випадку символи в діапазоні 128-255 буде вихід, використовуючи кодування двухбайтном в кодуванні UTF-8, а не в звичайній кодуванні один байт ISO-8859-1.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0340"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому проходження документа через сокет іноді зависає парсер?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Проблема в тому, що кілька XML-аналізатори закрити вхідний потік, коли вони читають EOF (-1). Це вірно Xerces, що на парсер JDOM за замовчуванням. Це також відноситься і до Crimson. На жаль, закриття <font face="Courier New, Courier, mono">SocketInputStream</font> 
+                закриває лежачий <font face="Courier New, Courier, mono">SocketImpl</font> , встановивши дескриптор файлу для <font face="Courier New, Courier, mono">NULL</font> . Вихідний потік сокета марно після цього, так що ваша заявка буде не в змозі відправити відповідь. Щоб обійти, захисту вхідний потік вашої сокета з <font face="Courier New, Courier, mono">InputStream</font> 
+                обгортці, що не закриває основний потік (перевизначити <font face="Courier New, Courier, mono">близько ()</font> 
+                метод), або читати все в буфер перед тим як перейти до будівельника JDOM:</font></p>
+<pre>байт [] ЬіЕ = новий байт [довжина];
+Новий DataInputStream (InputStream) .readFully (ЬіЕ);
+Вхідний потік в = новий ByteArrayInputStream (BUF);
+<font face="Arial, Helvetica, sans-serif">(Внесено Джозеф Bowbeer)</font>
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0350"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як зробити так, щоб DTD від навантаження? Навіть коли я вимикаю перевірку парсер намагається завантажити файл DTD.</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Навіть тоді, коли перевірка відключена, XML-парсер буде за замовчуванням завантажує зовнішній файл DTD для того, щоб розібрати на DTD для зовнішніх сутностей. Xerces має функцію відключення такої поведінки по імені "http://apache.org/xml/features/nonvalidating/load-external-dtd" і якщо ви знаєте, що ви використовуєте Xerces ви можете встановити цю функцію на забудовника.</font></p>
+<pre>builder.setFeature (
+  "Http://apache.org/xml/features/nonvalidating/load-external-dtd", брехливо);
+</pre>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Якщо ви використовуєте інший аналізатор, як пурпур, вам найкраще створити EntityResolver, дозволяючим DTD не читаючи окремий файл.</font></p>
+<pre>імпортувати org.xml.sax * .;
+імпорт java.io. *;
+</pre>
+<pre>суспільного класу NoOpEntityResolver реалізує EntityResolver {
+  громадського InputSource resolveEntity (String publicId, String SYSTEMID) {
+    повернутися нову InputSource (новий StringBufferInputStream (""));
+  }
+}
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Тоді в будівельника ...</font><br>
+                </p>
+<pre>builder.setEntityResolver (новий NoOpEntityResolver ());
+</pre>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Існує і зворотний бік цього підходу. Будь-які об'єкти в документі будуть вирішені в порожній рядок, і буде ефективно зникають. Якщо в документі особи, вам необхідно setExpandEntities (помилковою) код і забезпечити EntityResolver тільки пригнічує DOCTYPE.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <a name="schemas"></a> 
+
+                <br><p><a name="a0360"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як перевірити на відповідність схемі при використанні JDOM 2.x?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM 2.x вводить спрощену модель для перевірки документів. <font face="Courier New, Courier, mono">Org.jdom2.input.sax.XMLReaders</font> 
+				Enum містить членів, які створили свій перевірку для вас.
+				</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Повний код в JDOM 2.x виглядає наступним чином:</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder будівельник = <br>
+                 &nbsp; новий SAXBuilder (XMLReaders.XSDVALIDATING); <br>
+                 Документ док = builder.build (XML);</code></font></p>
+
+				</td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <a name="schemas"></a> 
+
+                <br><p><a name="a0365"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як перевірити на відповідність схемі при використанні JDOM 1.x?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">JDOM 1.x не має свій власний парсер, він використовує стандартні аналізатори, як Xerces щоб робити важку роботу. Якщо ви хочете перевірка схеми переконайтеся, що ви вибираєте парсер, який підтримує схеми. Xerces 2 є хорошим вибором (отримати його з <a href="http://xml.apache.org">http://xml.apache.org</a> ). Крім того, необхідно використовувати код JDOM Beta 8 або новіша.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Щоб вказати парсер JDOM використовує, ви можете або налаштувати JAXP відповідним (з JDOM використовує JAXP, якщо це доступно, побачити кінець цією позицією деталей), або ви можете явно передати ім'я аналізатором конструктору SAXBuilder. Для Xerces 2 клас парсер <font face="Courier New, Courier, mono">org.apache.xerces.parsers.SAXParser</font> . Ви також повинні </font> <font face="Arial, Helvetica, sans-serif" size="2">включити перевірку аналізатора, передаючи "правда" при створенні SAXBuilder.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder будівельник = <br>
+                 &nbsp; новий SAXBuilder ("org.apache.xerces.parsers.SAXParser", правда);</code></font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Далі, Ви говорите парсер (Xerces) ви хочете перевірити на відповідність схемі (або схем), і ви проходите інформацію парсер про тих схемою. Різні аналізатори робити це по-різному. В Xerces ви зробите це, встановивши спеціальні «особливості» і «Властивості» з синтаксичного аналізатора. JDOM виставляє ці настройки аналізатора з setFeature () і SetProperty () методів на SAXBuilder. Ці методи пропускання через були додані після Beta 7, тому ви повинні Beta 8 або вище.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Схеми включені з налаштування функцій "http://apache.org/xml/features/validation/schema" до істинних.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif"><code>builder.setFeature ( <br>
+
+                 &nbsp;</code></font> <font face="Arial, Helvetica, sans-serif"><code>"http://apache.org/xml/features/validation/schema", правда);</code></font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Місця схеми дано, встановивши властивість "http://apache.org/xml/properties/schema/external-schemaLocation" в список прогалин відокремлюють пар ім'я-значення. 'Ім'я' є простором імен схема пов'язана з, «цінність» є розташування схеми для цього простору імен. Наприклад:</font></p>
+
+                <p><code>builder.setProperty ( <br>
+                 &nbsp;</code>
+                <code>"http://apache.org/xml/properties/schema/external-schemaLocation", "http://www.w3.org/2001/12/soap-envelope мило-envelope.xsd" + " "+" http://kevinj.develop.com/weblog/weblog.xsd weblog.xsd ");</code></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Наведений приклад показує, як перевірити на декількох схем - проти SOAP 1.2 схему, де простір імен http://www.w3.org/2001/12/soap-envelope і і проти схеми для простору імен HTTP: // kevinj.develop.com/weblog/weblog.xsd. Файли, що описують ці схеми знаходяться в мильній envelope.xsd і weblog.xsd відповідно. Ви можете додати, як багато хто з цих пар ім'я-значення, якщо необхідно. Самі значення URL-адреси. Пари ім'я значення слідувати значення, вказане в рекомендації схеми ( <a href="http://www.w3.org/TR/xmlschema-1/#schema-loc">http://www.w3.org/TR/xmlschema-1/#schema-loc
+</a> ).</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Повний код виглядає наступним чином:</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif"><code>SAXBuilder будівельник = <br>
+                 &nbsp; новий SAXBuilder ("org.apache.xerces.parsers.SAXParser", правда); <br>
+                 builder.setFeature ( <br>
+                 &nbsp;
+                "http://apache.org/xml/features/validation/schema", 
+
+                 &nbsp;&nbsp;мило-envelope.xsd "+" "+ 
+                 &nbsp;&nbsp;"http://kevinj.develop.com/weblog/weblog.xsd weblog.xsd"); 
+                 Документ док = builder.build (XML);<br><font></font><br><font></font><br><font></font><br><font></font><br><font></font></code></font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Якщо ви хочете використовувати JAXP для вибору парсер, ви можете пропустити вказавши клас в конструктор SAXBuilder і замість установки системне властивість "javax.xml.parsers.SAXParserFactory" до значення "org.apache.xerces.jaxp.SAXParserFactoryImpl" , Це говорить JAXP використовувати фабрику Xerces "побудувати аналізатори. Якщо вам подобається, ви можете вказати цю нерухомість в командному рядку:</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif"><code>Java -Djavax.xml.parsers.SAXParserFactory = <br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                org.apache.xerces.jaxp.SAXParserFactoryImpl ...</code></font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">(Внесено Кевін Джонс)</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0370"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як я можу виконувати перевірку в пам'яті проти DTD або схеми?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">В даний час ви не можете зробити це, в JDOM або будь-якого іншого документа Java об'єктної моделі API. Проте, це те, що ми хотіли б JDOM для підтримки, і у нас є доброволець, який працює над цим.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0380"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">JDOM забезпечує документ в пам'яті завжди добре сформований. Може JDOM також забезпечити документ в пам'яті завжди справедливо?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ні, це наша поточна переконання, що краще виставити checkValid () тип виклику, ніж намагатися перевіряти постійну перевірки. Однією з причин є продуктивність. Друга причина полягає в тому, що у вас є проблема курки і яйця, де, наприклад, елемент повинен рівно два дочірні елементи, щоб бути дійсним, але після додавання або дитини документ буде в тимчасово неприпустимому стані. Щоб обійти це зажадає щось подібне модифікацій транзакційних, і це багато накладних витрат для невеликого прибутку.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0390"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чому я отримую IndexOutOfBoundsException або ConcurrentModificationException на цикл?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Подібний код буде кидати IndexOutOfBoundsException:</font></p>
+<pre> <font face="Courier New, Courier, mono" size="3"><code>Список дітей = root.getChildren ("Foo");
+ INT розмір = children.size ();
+ для (INT I = 0; г &lt;розмір; я ++) {
+   Елемент дитина = (Element) children.get (I);
+   child.detach ();
+   otherRoot.addContent (дитина);
+ }</code></font>
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Причина в тому, що розмір списку попередньо обчислені, але розмір зменшується на одиницю при кожному виклику на відкріплення (), в результаті чого протягом циклу, щоб піти від кінця списку. Правильний спосіб петлі полягає в використанні ітератора. З итератор у вас немає цієї проблеми, і це швидше.</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Проте, навіть з итератор, наступний код кидає ConcurrentModificationException:</font></p>
+<pre> <font face="Courier New, Courier, mono" size="3"><code>Список дітей = root.getChildren ("Foo");
+ Итератор ITR = children.iterator ();
+ в той час як (itr.hasNext ()) {
+   Елемент дитина = (Element) itr.next ();
+   child.detach ();
+   otherRoot.addContent (дитина);
+ }</code></font>
+</pre>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Причина в тому, що виклик на відкріплення () змінює список дітей, у той же час итератор обходу списку, і це одночасно модифікація. Рішення полягає в використанні видалити метод ітератора () замість Весь текст () в цій ситуації:<br>
+                </font></p>
+<pre><font face="Courier New, Courier, mono" size="3"><code><font face="Arial, Helvetica, sans-serif" size="2"><font face="Courier New, Courier, mono" size="3"><code>Список дітей = root.getChildren ("Foo");
+ Итератор ITR = children.iterator ();
+ в той час як (itr.hasNext ()) {
+   Елемент дитина = (Element) itr.next ();
+   itr.remove ();
+   otherRoot.addContent (дитина);
+ }</code></code></font>
+</pre>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0400"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Є архів для списків розсилки JDOM?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Так, всі повідомлення будуть доступні для вашого веб-прочитання. Нижче наведені пляма пошуку все-в-один архів:</font></p>
+
+                <ul>
+                  <li><a href="http://jdom.markmail.org">
+                  <font size="2" face="Arial, Helvetica, sans-serif">
+http://jdom.markmail.org</font></a></li>
+
+                </ul>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Є додаткові архіви на:</font></p>
+
+                <ul>
+                  <li><a href="http://www.jdom.org/pipermail/jdom-interest/">
+                  <font size="2" face="Arial, Helvetica, sans-serif">http://www.jdom.org/pipermail/jdom-interest/</font></a></li>
+
+                  <li><a href="http://www.jdom.org/pipermail/jdom-announce/">
+                  <font size="2" face="Arial, Helvetica, sans-serif">http://www.jdom.org/pipermail/jdom-announce/</font></a></li>
+
+                  <li><a href="http://www.jdom.org/pipermail/jdom-commits/">
+                  <font size="2" face="Arial, Helvetica, sans-serif">http://www.jdom.org/pipermail/jdom-commits/</font></a></li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0410"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як мені відмовитись від підписки на розсилку?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">URL управляти членство список (у тому числі підписку) кріпиться в нижній частині кожного повідомлення списку. Це має бути щось на зразок http://www.jdom.org/mailman/options/jdom-interest/ <i>
+                youraddr@yourhost.com</i> . Не забудьте замінити "youraddr" з вашою адресою і "YOURHOST" з вашого хоста. Для JDOM-оголосити замінити "інтерес" на "оголосити" в URL.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0420"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як мені створити в список розсилки з декількох адрес?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Для захисту від спаму, тільки члени розсилку, можуть залишати повідомлення. Щоб відправити з декількох облікових записів, підписатися кожен рахунок і встановити "Відключити доставки пошти", щоб "On" для всіх додаткових рахунків. Ви можете встановити цю функцію на URL, вказаною в <a href="#a0410">попередній відповіді</a> .</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0430"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Чи повинен я здавати загальні XML питання Джейсон, Бретт, або Рольф?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Ні, вони досить зайняті вже. Але Ви можете замовити книгу Бретта
+                 <i><a href="http://www.amazon.com/exec/obidos/ASIN/0596000162/jasonhunter">
+                Java і XML</a></i> або один з інших XML вступних книги, як <i><a href="http://www.amazon.com/exec/obidos/ASIN/0764532367/jasonhunter">
+                XML Біблії</a></i> по Елліотт Рости Гарольд (один з наших видних членів списку JDOM-процентної).</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0450"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">У книзі <i>Java і XML</i> 
+                розповідає про JDOM 1,0; Тому плутанина?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Книга охоплює ранній бета-тестування. Багато чого змінилося (в кращу сторону), так як видання книги. Для найбільш точного JDOM API довіри Javadocs, а не книга. Бретт був трохи оптимістично, коли писав книгу. Його 2-е видання ставить речі прямо.</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0460"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">У мене є питання, що тут немає відповіді. Що я роблю?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">По-перше, ви повинні <a href="http://jdom.markmail.org/">
+                шукати архіви списку JDOM</a> . Наприклад, якщо ви використовуєте парсер Oracle і побачити IllegalTargetException який пахне рибний, ви можете шукати "оракула IllegalTargetException", і ви знайдете обговорення цього питання. Обшуки є потужним і швидким!</font></p>
+
+                <p><font face="Arial, Helvetica, sans-serif" size="2">Якщо ви не можете знайти відповідь в архіві, ви можете розмістити на JDOM інтересів. Якщо ви думаєте, що знайшли помилку, переконайтеся, що ви виконаєте наступні поради про звіти про помилки!</font></p>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0470"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Як мені повідомити про помилку?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">Якщо ви вважаєте, що знайшли помилку в JDOM, будь ласка, виконайте наступні дії:</font></p>
+
+                <ol>
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Перевіряйте як
+				   <a href="https://github.com/hunterhacker/jdom/issues?state=open">відкриті питання</a> 
+				  і <a href="https://github.com/hunterhacker/jdom/issues?state=closed">закрив питання</a> 
+                  , щоб переконатися, що це відома проблема.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Перевірте, чи виникає проблема при використанні
+				   <a href="https://github.com/hunterhacker/jdom/zipball/master">
+				  останньої версії розвитку (джерело .zip)</a> з JDOM.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Пошук по <a href="http://jdom.markmail.org/">
+                  архіви списку розсилки JDOM</a> , як описано вище.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">Якщо ви не можете знайти рішення з останньою знімка, або 
+				   <a href="https://github.com/hunterhacker/jdom/issues/new">
+				  створити проблему на GitHub</a> або пост на
+                   <a href="../involved/lists.html">JDOM-відсоткової</a> 
+                  розсилку; переконайтеся, що ви абонент спочатку як тільки абоненти можуть залишати повідомлення.</font></li>
+
+                  <li><font size="2" face="Arial, Helvetica, sans-serif">В повідомленні про помилку, дати якомога більше інформації, - трасування стека, відтворений і короткий приклад коду, в XML-файл, що викликає проблеми. Переконайтеся заявити версію JDOM використовуватися (офіційна версія або GitHub вчинити).</font></li>
+
+                  <li><font face="Arial, Helvetica, sans-serif" size="2">Якщо у вас є патч, що виправляє помилку, будь ласка, стверджують, що разом із звітом проблеми. Ми любимо патчі.</font></li>
+                </ol>
+              </td>
+            </tr>
+
+            <tr align="left" valign="top">
+              <td>
+                <br><p><a name="a0480"><font face="Arial, Helvetica, sans-serif"><b><font color="#003366" size="2">Де я можу дізнатися більше?</font></b></font></a></p>
+
+                <p><font size="2" face="Arial, Helvetica, sans-serif">API документація JDOM, ковзає від початкової JDOM оголошення, та інші корисні ресурси можуть бути завантажені <a href="http://www.jdom.org/downloads/docs.html">тут</a> .</font></p>
+              </td>
+            </tr>
+          </table>
+  </body>
+</html>
