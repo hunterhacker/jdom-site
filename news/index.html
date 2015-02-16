@@ -74,6 +74,45 @@
       <table width="100%" border="0" cellspacing="5" cellpadding="5">
         <tr align="left" valign="top"> 
           <td height="61"> 
+            <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366">02.15.2015: 
+              JDOM 2.0.6 Released!</font></b></font></p>
+            <font face="Arial, Helvetica, sans-serif" size="2"><p>
+                <p><b>JDOM 2.0.6 is here!</b></p>
+                <p>
+                JDOM 2.0.6 fixes some issues:
+                <p>
+				<ul>
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/120">Issue 120</a>
+				- Incorrect cloning of JaxenCompile ending up with variables shared between clones.
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/127">Issue 127</a>
+				- When Outputting content, getting a PrettyFormat Format, then setting it to "Preserve" does not preserve properly
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/126">Issue 126</a>
+				- While namespaces prefixes like "Xml" are discouraged, they are actually allowed (except "xml" and "xmlns" - case specific).
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/128">Issue 128</a>
+				- Third party Security audit revealed a few places which were vulnerable.
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/129">Issue 129</a>
+				- Java 8 introduces public sort method on List interface. This conflicts with protected sort on ContentList
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/131">Issue 131</a>
+				- JavaDoc fix
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/134">Issue 134</a>
+				- Upgrade Xalan to 2.7.2
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/143">Issue 143</a>
+				- Maven third party dependency versions
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/136">Issue 136</a>
+				- XMLReaders enum initializes all three members on first use (Non-validating, DTD, and XSD). This can be slow when not needed.
+				<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/138">Issue 138</a>
+				- Non-Namespace Aware DOM constructs get Parsed OK by JDOM 1.x but fail on JDOM 2.x. Make JDOM 2.x look harder for undeclared prefixes.
+				</ul>
+                <p>
+                <a href="../dist/binary/jdom-2.0.6.zip">Get JDOM 2.0.6 Here!</a> or from the maven-central
+                repository here:
+                <a href="http://search.maven.org/#artifactdetails|org.jdom|jdom2|2.0.6|jar">
+                Group: org.jdom, Artifact: jdom2</a>
+                </p></font>
+          </td>
+        </tr>
+        <tr align="left" valign="top"> 
+          <td height="61"> 
             <p><font face="Arial, Helvetica, sans-serif"><b><font color="#003366">04.28.2013: 
               JDOM 2.0.5 Released!</font></b></font></p>
             <font face="Arial, Helvetica, sans-serif" size="2"><p>
