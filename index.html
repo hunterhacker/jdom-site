@@ -94,19 +94,15 @@
           <td height="39" width="25%"><font size="2"><b><font face="Arial, Helvetica, sans-serif" color="#003366">Project 
             Status?</font></b></font></td>
           <td height="39" width="75%"><font face="Arial, Helvetica, sans-serif" size="2"><b>JDOM 
-            2.0.6 is available!</b> This is a recommended upgrade for anyone still using
-			JDOM 1.1.3 or earlier, and using Java5 or later. JDOM 2.0.6 contains a few fixes:
+            2.0.6.1 is available!</b> This release contains a few fixes including a security fix:
 			<ul>
-			<li>Fixes Issue 120 - Incorrect cloning of JaxenCompile ending up with variables shared between clones.
-			<li>Fixes Issue 127 - When Outputting content, getting a PrettyFormat Format, then setting it to "Preserve" does not preserve properly
-			<li>Fixes Issue 126 - While namespaces prefixes like "Xml" are discouraged, they are actually allowed (except "xml" and "xmlns" - case specific).
-			<li>Fixes Issue 128 - Third party Security audit revealed a few places which were vulnerable.
-			<li>Fixes Issue 129 - Java 8 introduces public sort method on List interface. This conflicts with protected sort on ContentList
-			<li>Fixes Issue 131 - JavaDoc fix
-			<li>Fixes Issue 134 - Upgrade Xalan to 2.7.2
-			<li>Fixes Issue 143 - Maven third party dependency versions
-			<li>Fixes Issue 136 - XMLReaders enum initializes all three members on first use (Non-validating, DTD, and XSD). This can be slow when not needed.
-			<li>Fixes Issue 138 - Non-Namespace Aware DOM constructs get Parsed OK by JDOM 1.x but fail on JDOM 2.x. Make JDOM 2.x look harder for undeclared prefixes.
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/156">Issue 156</a> - Report prolog whitespace
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/161">Issue 161</a> - org.jdom2.contrib.input.scanner. ElementScanner#parse(InputSource) fails with java.lang.NullPointerException: No parent for filter
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/165">Issue 165</a> - AbstractReaderXSDFactory: SchemaFactory needlessly managed as a thread-global
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/171">Issue 171</a> - Fix for NPE on null attribute name
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/173">Issue 173</a> - Element.getContentSize() gives different result with CDATA between v1.1 and v2.0.6
+			<li>Fixes <a href="https://github.com/hunterhacker/jdom/issues/189">Issue 189</a> - <b>Security warning: CVE-2021-33813</b>
+			<li>Note: Now built with JDK 1.8.0_151-b12 rather than JDK 1.7.0_75-b13 which 2.0.6 used (still targets 1.5 using source/target flags)
 			</ul>
 			
 			<p/>
